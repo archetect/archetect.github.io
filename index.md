@@ -1,1 +1,1 @@
-## Archetect architects architectures from archetypes.
+Archetect
