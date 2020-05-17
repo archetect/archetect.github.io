@@ -8,14 +8,14 @@ but more powerful, and like Yeoman, but easier to use.
 
 You can get a binary of the `archetect` command line tool [here](https://github.com/archetect/archetect/releases).
 
-We are going to be using some basic features available in Archect to get started on writing a template. 
+We are going to be using some basic features available in Archetect to get started on writing a template. 
 Running `archetect -h` will get you the help menu for the available commands.
 
 ### Building your first project template
 
 
 #### Archetect definition
-Create a new directory and add a `archetype.yaml` file. This is the central file to specify all parameters required
+Create a new directory and add a `archetype.yml` file. This is the central file to specify all parameters required
 for your project template. Copy the following to get started
 
 ```
@@ -69,7 +69,7 @@ At this point your project template directory should look like this.
 |____contents
 | |____{{name}}
 | | |____index.js
-|____archetype.yaml
+|____archetype.yml
 |____.gitignore
 ```
 
