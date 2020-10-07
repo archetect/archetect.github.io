@@ -3,9 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Archetect Documentation</title>
-        
-        <meta name="robots" content="noindex" />
+        <title>Recipes - Archetect Documentation</title>
         
         
 
@@ -95,7 +93,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="archetect.html">Archetect</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="authoring.html"><strong aria-hidden="true">3.</strong> Archetype Authoring: Step by Step</a></li><li class="chapter-item expanded "><a href="configuration_reference.html"><strong aria-hidden="true">4.</strong> Configuration Reference</a></li><li class="chapter-item expanded "><a href="templating_reference.html"><strong aria-hidden="true">5.</strong> Templating Reference</a></li><li class="chapter-item expanded "><a href="recipes.html"><strong aria-hidden="true">6.</strong> Recipes</a></li><li class="chapter-item expanded affix "><a href="credits.html">Credits</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="archetect.html">Archetect</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="authoring.html"><strong aria-hidden="true">3.</strong> Archetype Authoring: Step by Step</a></li><li class="chapter-item expanded "><a href="configuration_reference.html"><strong aria-hidden="true">4.</strong> Configuration Reference</a></li><li class="chapter-item expanded "><a href="templating_reference.html"><strong aria-hidden="true">5.</strong> Templating Reference</a></li><li class="chapter-item expanded "><a href="recipes.html" class="active"><strong aria-hidden="true">6.</strong> Recipes</a></li><li class="chapter-item expanded affix "><a href="credits.html">Credits</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -161,32 +159,21 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#archetect" id="archetect">Archetect</a></h1>
-<p>Archetect is a powerful content and code generation tool, with the ability to generate files, projects, or entire architectures.</p>
-<p>Archetect is similar to Java's <a href="https://maven.apache.org/guides/introduction/introduction-to-archetypes.html">Maven Archetypes</a>, JavaScript's <a href="https://yeoman.io/">yeoman</a>, and Python's <a href="https://cookiecutter.readthedocs.io">cookiecutter</a>.  These are all powerful content generators in their own right, each with their own strengths and weaknesses. Archetect endeavors to take the best aspects of each, and make something greater than the sum of their parts.</p>
-<p>Below are some of the specific and key goals and motivations behind the making of Archetect.</p>
-<h2><a class="header" href="#language-agnostic" id="language-agnostic">Language Agnostic</a></h2>
-<p>Unlike some code generators, Archetect does not favor any target programming language.  It has a simple but powerful <a href="https://yaml.org/">yaml</a> based configuration language, and uses a <a href="https://jinja.palletsprojects.com">Jinja 2</a> style templating language.  There is no way to script templates with JavaScript or Python.  The hard parts of template authoring are baked right into the feature set.</p>
-<h2><a class="header" href="#easy-to-use" id="easy-to-use">Easy to Use</a></h2>
-<p>Generating a project from an archetype hosted in a remote git repo is as easy as:</p>
-<pre><code class="language-shellscript">archetect render git@github.com:archetect/archetype-rust-cli.git
-</code></pre>
-<p>No need to install a template locally.  No need to guess parameters required to feed the template.  No need to guess whether the template author is hoping you'll type in answers that are camelCased, PascalCased, or train-cased. It can be run interactively, or completely headless, online or off.</p>
-<h2><a class="header" href="#easy-authoring-and-publishing" id="easy-authoring-and-publishing">Easy Authoring and Publishing</a></h2>
-<p>Archetect archetypes are simple directories.  No special conventions are enforced, and you're free to organize your archetypes as simply or as sophisticated as you'd like.  Making your fancy archetype available for anyone to use is as simple as publishing it as a git repository. </p>
-<h2><a class="header" href="#low-barrier-to-entry" id="low-barrier-to-entry">Low Barrier to Entry</a></h2>
-<p>Archetect is a native binary written in the <a href="https://www.rust-lang.org/">Rust</a> programming language, depending on nothing more than your local git binary and setup.  Binaries are available for OSX, Linux, and Windows.  No need to have the right version of Python and libraries installed.  No need to install NodeJS/NPM.  No need to install a JVM.  It can run on your laptop, or within a CI/CD pipeline.</p>
-<h1><a class="header" href="#installation" id="installation">Installation</a></h1>
-<h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
-<h1><a class="header" href="#authoring-guide" id="authoring-guide">Authoring Guide</a></h1>
-<h1><a class="header" href="#credits" id="credits">Credits</a></h1>
-
+                        
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="templating_reference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
+                        
+                            <a rel="next" href="credits.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -196,7 +183,15 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a rel="prev" href="templating_reference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
+                
+                    <a rel="next" href="credits.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 
@@ -229,14 +224,6 @@
         <!-- Custom JS scripts -->
         
 
-        
-        
-        <script type="text/javascript">
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
-        
         
 
     </body>
