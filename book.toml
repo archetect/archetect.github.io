@@ -1,0 +1,6 @@
+[book]
+authors = ["Jimmie Fulton"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Archetect"
