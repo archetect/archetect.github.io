@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="archetect.html">Archetect</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="authoring.html"><strong aria-hidden="true">3.</strong> Archetype Authoring: Step by Step</a></li><li class="chapter-item expanded "><a href="configuration_reference.html"><strong aria-hidden="true">4.</strong> Configuration Reference</a></li><li class="chapter-item expanded "><a href="templating_reference.html"><strong aria-hidden="true">5.</strong> Templating Reference</a></li><li class="chapter-item expanded "><a href="recipes.html"><strong aria-hidden="true">6.</strong> Recipes</a></li><li class="chapter-item expanded affix "><a href="credits.html">Credits</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="archetect.html">Archetect</a></li><li class="chapter-item expanded affix "><a href="features.html">Features</a></li><li class="chapter-item expanded "><a href="getting_started.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="getting_started/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="getting_started/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="getting_started/post.html"><strong aria-hidden="true">1.3.</strong> Post Configuration</a></li></ol></li><li class="chapter-item expanded "><a href="authoring.html"><strong aria-hidden="true">2.</strong> Archetype Authoring: Step by Step</a></li><li class="chapter-item expanded "><a href="configuration_reference.html"><strong aria-hidden="true">3.</strong> Configuration Reference</a></li><li class="chapter-item expanded "><a href="templating_reference.html"><strong aria-hidden="true">4.</strong> Templating Reference</a></li><li class="chapter-item expanded "><a href="recipes.html"><strong aria-hidden="true">5.</strong> Recipes</a></li><li class="chapter-item expanded affix "><a href="credits.html">Credits</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -161,23 +161,88 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#archetect" id="archetect">Archetect</a></h1>
+                        <h1><a class="header" href="#introduction-to-archetect" id="introduction-to-archetect">Introduction to Archetect</a></h1>
 <p>Archetect is a powerful content and code generation tool, with the ability to generate files, projects, or entire architectures.</p>
 <p>Archetect is similar to Java's <a href="https://maven.apache.org/guides/introduction/introduction-to-archetypes.html">Maven Archetypes</a>, JavaScript's <a href="https://yeoman.io/">yeoman</a>, and Python's <a href="https://cookiecutter.readthedocs.io">cookiecutter</a>.  These are all powerful content generators in their own right, each with their own strengths and weaknesses. Archetect endeavors to take the best aspects of each, and make something greater than the sum of their parts.</p>
 <p>Below are some of the specific and key goals and motivations behind the making of Archetect.</p>
 <h2><a class="header" href="#language-agnostic" id="language-agnostic">Language Agnostic</a></h2>
-<p>Unlike some code generators, Archetect does not favor any target programming language.  It has a simple but powerful <a href="https://yaml.org/">yaml</a> based configuration language, and uses a <a href="https://jinja.palletsprojects.com">Jinja 2</a> style templating language.  There is no way to script templates with JavaScript or Python.  The hard parts of template authoring are baked right into the feature set.</p>
+<p>Unlike some code generators, Archetect does not favor any target programming language.  It has a simple but powerful <a href="https://yaml.org/">yaml</a> based configuration language, and uses a <a href="https://jinja.palletsprojects.com">Jinja 2</a> style templating language.  Archetect gives you all the tools you need to generate code in any language, without needing to resort to embedding Python or JavaScript into your templates.</p>
 <h2><a class="header" href="#easy-to-use" id="easy-to-use">Easy to Use</a></h2>
 <p>Generating a project from an archetype hosted in a remote git repo is as easy as:</p>
 <pre><code class="language-shellscript">archetect render git@github.com:archetect/archetype-rust-cli.git
 </code></pre>
-<p>No need to install a template locally.  No need to guess parameters required to feed the template.  No need to guess whether the template author is hoping you'll type in answers that are camelCased, PascalCased, or train-cased. It can be run interactively, or completely headless, online or off.</p>
+<p>No need to install templates locally.  No need to guess parameters required to feed the template.  No need to guess whether the template author is hoping you'll type in answers that are camelCased, PascalCased, or train-cased. It can be run interactively or headless, online or off.</p>
 <h2><a class="header" href="#easy-authoring-and-publishing" id="easy-authoring-and-publishing">Easy Authoring and Publishing</a></h2>
-<p>Archetect archetypes are simple directories.  No special conventions are enforced, and you're free to organize your archetypes as simply or as sophisticated as you'd like.  Making your fancy archetype available for anyone to use is as simple as publishing it as a git repository. </p>
+<p>Archetect archetypes are nothing more than a directory with an archetype.yml file at the root.  No special conventions are enforced, and you're free to organize your archetypes as simply or as sophisticated as you'd like.  Making your fancy archetype available for the entire world to use is as simple as publishing it in a git repository. </p>
 <h2><a class="header" href="#low-barrier-to-entry" id="low-barrier-to-entry">Low Barrier to Entry</a></h2>
-<p>Archetect is a native binary written in the <a href="https://www.rust-lang.org/">Rust</a> programming language, depending on nothing more than your local git binary and setup.  Binaries are available for OSX, Linux, and Windows.  No need to have the right version of Python and libraries installed.  No need to install NodeJS/NPM.  No need to install a JVM.  It can run on your laptop, or within a CI/CD pipeline.</p>
-<h1><a class="header" href="#installation" id="installation">Installation</a></h1>
+<p>Archetect is a native binary written in the <a href="https://www.rust-lang.org/">Rust</a> programming language, and depends on nothing more than your local git binary and setup.  Binaries are available for OSX, Linux, and Windows.  No need to have the right version of Python and libraries installed.  No need to install NodeJS/NPM.  No need to install a JVM.  It can run on your laptop, or just as easily within a CI/CD pipeline.</p>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
+<p>Getting started with Archetect is considerably easier than many content generators, but there are a few steps you'll want follow to ensure you're ready to go.</p>
+<p>First, you'll need to check off a prerequisite or two first, which are likely already satisfied if you write a lot code, as opposed to, say, generating it.</p>
+<p>Naturally, you'll want to install the binary.</p>
+<p>And last, you'll want to apply some optional configuration (using Archetect itself!) to provide a more fluid experience, and verify everything is working.</p>
+<h1><a class="header" href="#prerequisites" id="prerequisites">Prerequisites</a></h1>
+<h2><a class="header" href="#git" id="git">Git</a></h2>
+<p>Archetect is a single native binary designed for use on the command line.  Technically, placing this is on your shell's path is all you would need to get going.  You could limit yourself to generating projects from archetypes authored or downloaded on your local machine.  But that's no fun.</p>
+<p>Archetect was designed to work with git, and you'll want to have git set up on your machine to unleash it's full power.  Furthermore, to get the best experience, you'll also want to set up SSH password-less authentication on any git hosts you might expect to pull archetypes from.</p>
+<p>Setting up git is beyond the scope of this book.  There are many resources available online for your specific platform.  GitHub's own <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh">documentation on the subject</a> is a good place to start.</p>
+<p>If you are able to execute the following command from your shell's command line in a directory you like storing coding projects, without being prompted for a password, you should be ready to go:</p>
+<pre><code class="language-shellscript">git clone git@github.com:archetect/archetect.git
+</code></pre>
+<h2><a class="header" href="#a-note-on-windows" id="a-note-on-windows">A Note on Windows</a></h2>
+<p>Archetect works best with a Unix-like shell, and should work flawlessly on OSX and Linux.  While Archetect works on Windows under PowerShell, you'll get the best experience by leveraging the &quot;Git Bash Shell&quot; that typically comes with a Windows Git install, and found within your Start Menu.</p>
+<h1><a class="header" href="#installation" id="installation">Installation</a></h1>
+<h2><a class="header" href="#pre-compiled-binaries" id="pre-compiled-binaries">Pre-compiled binaries</a></h2>
+<p>Pre-compiled binaries are available on Archetect's <a href="https://github.com/archetect/archetect/releases/latest">Releases GitHub Page</a> for 64 bit flavors of OSX, Linux, and Windows.  The Linux binary is compiled against <a href="https://musl.libc.org/">musl libc</a> for compatibility on multiple Linux distribution flavors.</p>
+<p>Installation is as simple as downloading the zip file that matches your platform, extracting the contents, and placing the <code>archetect</code> or <code>archetect.exe</code> binary within a location of your choosing.  Ideally, that location would be on your path.</p>
+<h2><a class="header" href="#compile-from-source" id="compile-from-source">Compile from Source</a></h2>
+<p>If you're already a existing or aspriing Rust developer, using a recent installation of the <a href="https://rustup.rs/">Rust toolchain</a>, you can install Archetect from source:</p>
+<pre><code class="language-shellscript">cd ~/projects/rust
+git clone git@github.com:archetect/archetect.git
+cd archetect
+cargo install --path ./archetect-cli --force 
+</code></pre>
+<h2><a class="header" href="#verifying-install" id="verifying-install">Verifying Install</a></h2>
+<p>If Archetect is on your shell's path, you can verify that you've got a working binary by executing the following from your shell:</p>
+<pre><code class="language-shellscript">archetect --version
+</code></pre>
+<h1><a class="header" href="#post-configuration" id="post-configuration">Post Configuration</a></h1>
+<p>Archetect can get by just fine with little or no configuration. </p>
+<p>However, there are common answers to questions almost any archetype would ask of you.  Things like, &quot;Who's the author of this project?&quot;.  You wouldn't want to have to enter that every time, since you're probably not changing your name often.</p>
+<p>Also, it's not always convenient to copy and paste the location of an archetype hosted in a git repo.  If you do a lot of prototyping, you may be generating lots of projects from a variety of archetypes, and it would be handy to have a menu of archetypes available.</p>
+<p>Luckily, Archetect has solutions for both of these problems, but you'll need to apply a little bit of configuration to get them.  Archetect wouldn't be much of a content generator if it couldn't generate its own configuration files!</p>
+<h2><a class="header" href="#generate-your-configuration" id="generate-your-configuration">Generate your Configuration</a></h2>
+<p>Provided you've followed all of the steps so far, lets generate that configuration using Archetect itself!</p>
+<pre><code class="language-shellscript">archetect render git@github.com:archetect/archetect-initializer.git ~/.archetect/
+</code></pre>
+<p>You should see something like the following:</p>
+<pre><code class="language-shellscript">archetect: Pulling git@github.com:archetect/archetect-initializer.git
+What is your first name? Jimmie
+What is your last name? Fulton
+What is your email address? jimmie.fulton@spammail.com
+</code></pre>
+<p>What happened?  The <code>archetect render</code> command pulled <code>git@github.com:archetect/archetect-initializer.git</code> into a local cache, and used the archetype configuration and templates within to generate the contents of the newly created <code>~/.archetect</code> directory.</p>
+<p>Let's take a peek at one of the files that was generated, shall we?</p>
+<pre><code class="language-shellscript">cat ~/.archetect/etc/answers.yml
+</code></pre>
+<p>This file contains answers to questions archetype authors might use within their templates.  If they use the same variable names you have listed in your answers file, you won't be prompted for those specific questions.  Your answers.yml file should look at lot like this:</p>
+<pre><code class="language-yaml">---
+answers:
+  author:
+    value: &quot;Jimmie Fulton&quot;
+
+  author_full:
+    value: &quot;Jimmie Fulton&quot;
+
+  author_email:
+    value: &quot;jimmie.fulton@spammail.com&quot;
+
+  author_long:
+    value: &quot;Jimmie Fulton &lt;jimmie.fulton@spammail.com&gt;&quot;
+
+  author_short:
+    value: &quot;jfulton&quot;
+</code></pre>
 <h1><a class="header" href="#authoring-guide" id="authoring-guide">Authoring Guide</a></h1>
 <h1><a class="header" href="#credits" id="credits">Credits</a></h1>
 
