@@ -8,7 +8,7 @@ Also, it's not always convenient to copy and paste the location of an archetype 
 
 Luckily, Archetect has solutions for both of these problems, but you'll need to apply a little bit of configuration to get them.  Archetect wouldn't be much of a content generator if it couldn't generate its own configuration files!
 
-## Generate your Configuration
+## Generating your Configuration
 
 Provided you've followed all of the steps so far, lets generate that configuration using Archetect itself!
 

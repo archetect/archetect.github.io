@@ -2,7 +2,7 @@
 
 ## Git
 
-Archetect is a single native binary designed for use on the command line.  Technically, placing this is on your shell's path is all you would need to get going.  You could limit yourself to generating projects from archetypes authored or downloaded on your local machine.  But that's no fun.
+Archetect is a single native binary designed for use on the command line.  Technically, placing this on your shell's path is all you would need to get going.  You could limit yourself to generating projects from archetypes authored or downloaded on your local machine.  But that's no fun.
 
 Archetect was designed to work with git, and you'll want to have git set up on your machine to unleash it's full power.  Furthermore, to get the best experience, you'll also want to set up SSH password-less authentication on any git hosts you might expect to pull archetypes from.
 
