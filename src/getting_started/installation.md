@@ -8,7 +8,7 @@ Installation is as simple as downloading the zip file that matches your platform
 
 ## Compile from Source
 
-If you're already a existing or aspriing Rust developer, using a recent installation of the [Rust toolchain](https://rustup.rs/), you can install Archetect from source:
+If you're an existing or aspiring Rust developer, using a recent installation of the [Rust toolchain](https://rustup.rs/), you can install Archetect from source:
 
 ```shell script
 cd ~/projects/rust
