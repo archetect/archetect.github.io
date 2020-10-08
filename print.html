@@ -183,7 +183,7 @@
 <p>And last, you'll want to apply some optional configuration (using Archetect itself!) to provide a more fluid experience, and verify everything is working.</p>
 <h1><a class="header" href="#prerequisites" id="prerequisites">Prerequisites</a></h1>
 <h2><a class="header" href="#git" id="git">Git</a></h2>
-<p>Archetect is a single native binary designed for use on the command line.  Technically, placing this is on your shell's path is all you would need to get going.  You could limit yourself to generating projects from archetypes authored or downloaded on your local machine.  But that's no fun.</p>
+<p>Archetect is a single native binary designed for use on the command line.  Technically, placing this on your shell's path is all you would need to get going.  You could limit yourself to generating projects from archetypes authored or downloaded on your local machine.  But that's no fun.</p>
 <p>Archetect was designed to work with git, and you'll want to have git set up on your machine to unleash it's full power.  Furthermore, to get the best experience, you'll also want to set up SSH password-less authentication on any git hosts you might expect to pull archetypes from.</p>
 <p>Setting up git is beyond the scope of this book.  There are many resources available online for your specific platform.  GitHub's own <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh">documentation on the subject</a> is a good place to start.</p>
 <p>If you are able to execute the following command from your shell's command line in a directory you like storing coding projects, without being prompted for a password, you should be ready to go:</p>
@@ -211,7 +211,7 @@ cargo install --path ./archetect-cli --force
 <p>However, there are common answers to questions almost any archetype would ask of you.  Things like, &quot;Who's the author of this project?&quot;.  You wouldn't want to have to enter that every time, since you're probably not changing your name often.</p>
 <p>Also, it's not always convenient to copy and paste the location of an archetype hosted in a git repo.  If you do a lot of prototyping, you may be generating lots of projects from a variety of archetypes, and it would be handy to have a menu of archetypes available.</p>
 <p>Luckily, Archetect has solutions for both of these problems, but you'll need to apply a little bit of configuration to get them.  Archetect wouldn't be much of a content generator if it couldn't generate its own configuration files!</p>
-<h2><a class="header" href="#generate-your-configuration" id="generate-your-configuration">Generate your Configuration</a></h2>
+<h2><a class="header" href="#generating-your-configuration" id="generating-your-configuration">Generating your Configuration</a></h2>
 <p>Provided you've followed all of the steps so far, lets generate that configuration using Archetect itself!</p>
 <pre><code class="language-shellscript">archetect render git@github.com:archetect/archetect-initializer.git ~/.archetect/
 </code></pre>
