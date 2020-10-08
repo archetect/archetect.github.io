@@ -1,9 +1,11 @@
 # Summary
 
 [Archetect](./archetect.md)
-
-- [Installation](installation.md)
+[Features](features.md)
 - [Getting Started](getting_started.md)
+    - [Prerequisites](getting_started/prerequisites.md)
+    - [Installation](getting_started/installation.md)
+    - [Post Configuration](getting_started/post.md)
 - [Archetype Authoring: Step by Step](authoring.md)
 - [Configuration Reference](configuration_reference.md)
 - [Templating Reference](templating_reference.md)
