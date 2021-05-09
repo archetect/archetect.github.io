@@ -6,9 +6,22 @@ Pre-compiled binaries are available on Archetect's [Releases GitHub Page](https:
 
 Installation is as simple as downloading the zip file that matches your platform, extracting the contents, and placing the `archetect` or `archetect.exe` binary within a location of your choosing.  Ideally, that location would be on your path.
 
-## Compile from Source
+Note: On OSX, unsigned cli binaries, like Archetect, are not allowed to run by default. To allow Archetect to run on
+OSX, you'll need to browse to the binary with Finder, right or Control-click on it, and click "Open".  Once you've done this, you
+should be able to execute Archetect at the command line for hence forth.
 
-If you're an existing or aspiring Rust developer, using a recent installation of the [Rust toolchain](https://rustup.rs/), you can install Archetect from source:
+## For Rust Developers
+
+If you're an existing or aspiring Rust developer with a recent version of the [Rust toolchain](https://rustup.rs/) installed, 
+you can install Archetect in a few ways.
+
+Via cargo (for the most recent stable version):
+
+```shell
+cargo install archetect --force
+```
+
+From source (for the bleeding edge):
 
 ```shell script
 cd ~/projects/rust
