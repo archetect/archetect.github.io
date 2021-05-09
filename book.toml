@@ -4,3 +4,7 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Archetect Documentation"
+
+[output.html]
+preferred-dark-theme = "coal"
+git-repository-url = "https://github.com/archetect/archetect.github.io"
