@@ -50,7 +50,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -134,6 +134,10 @@
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         
+                        <a href="https://github.com/archetect/archetect.github.io" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -195,8 +199,16 @@
 <h2><a class="header" href="#pre-compiled-binaries" id="pre-compiled-binaries">Pre-compiled binaries</a></h2>
 <p>Pre-compiled binaries are available on Archetect's <a href="https://github.com/archetect/archetect/releases/latest">Releases GitHub Page</a> for 64 bit flavors of OSX, Linux, and Windows.  The Linux binary is compiled against <a href="https://musl.libc.org/">musl libc</a> for compatibility on multiple Linux distribution flavors.</p>
 <p>Installation is as simple as downloading the zip file that matches your platform, extracting the contents, and placing the <code>archetect</code> or <code>archetect.exe</code> binary within a location of your choosing.  Ideally, that location would be on your path.</p>
-<h2><a class="header" href="#compile-from-source" id="compile-from-source">Compile from Source</a></h2>
-<p>If you're an existing or aspiring Rust developer, using a recent installation of the <a href="https://rustup.rs/">Rust toolchain</a>, you can install Archetect from source:</p>
+<p>Note: On OSX, unsigned cli binaries, like Archetect, are not allowed to run by default. To allow Archetect to run on
+OSX, you'll need to browse to the binary with Finder, right or Control-click on it, and click &quot;Open&quot;.  Once you've done this, you
+should be able to execute Archetect at the command line for hence forth.</p>
+<h2><a class="header" href="#for-rust-developers" id="for-rust-developers">For Rust Developers</a></h2>
+<p>If you're an existing or aspiring Rust developer with a recent version of the <a href="https://rustup.rs/">Rust toolchain</a> installed, 
+you can install Archetect in a few ways.</p>
+<p>Via cargo (for the most recent stable version):</p>
+<pre><code class="language-shell">cargo install archetect --force
+</code></pre>
+<p>From source (for the bleeding edge):</p>
 <pre><code class="language-shellscript">cd ~/projects/rust
 git clone git@github.com:archetect/archetect.git
 cd archetect
