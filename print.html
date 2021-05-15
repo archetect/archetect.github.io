@@ -180,6 +180,39 @@
 <p>Archetect archetypes are nothing more than a directory with an archetype.yml file at the root.  No special conventions are enforced, and you're free to organize your archetypes as simply or as sophisticated as you'd like.  Making your fancy archetype available for the entire world to use is as simple as publishing it in a git repository. </p>
 <h2><a class="header" href="#low-barrier-to-entry" id="low-barrier-to-entry">Low Barrier to Entry</a></h2>
 <p>Archetect is a native binary written in the <a href="https://www.rust-lang.org/">Rust</a> programming language, and depends on nothing more than your local git binary and setup.  Binaries are available for OSX, Linux, and Windows.  No need to have the right version of Python and libraries installed.  No need to install NodeJS/NPM.  No need to install a JVM.  It can run on your laptop, or just as easily within a CI/CD pipeline.</p>
+<h1><a class="header" href="#archetect-features" id="archetect-features">Archetect Features</a></h1>
+<p>Archetect was designed specifically with these goals in mind:</p>
+<ul>
+<li>Language Agnostic</li>
+<li>Easy to Author archetypes</li>
+<li>Easy to Publish archetypes</li>
+<li>Easy to Use archetypes</li>
+<li>Usable within an Enterprise Environment</li>
+</ul>
+<p>To meet these goals, Archetect has some core features which are fairly unique amongst content generators.</p>
+<h2><a class="header" href="#smart-casing-functions" id="smart-casing-functions">Smart Casing Functions</a></h2>
+<p>Archetect's templating <a href="https://github.com/Keats/tera">Tera</a>, a Jinja2-like templating engine.  Smart casing functions 
+have been added that make it trivial to convert inputs from any casing shape to any other casing shape.</p>
+<ul>
+<li><code>{{ 'Hello World' | snake_case }}</code>    =&gt; hello_world</li>
+<li><code>{{ 'Hello World' | camel_case }}</code>    =&gt; helloWorld</li>
+<li><code>{{ 'Hello World' | pascal_case }}</code>   =&gt; HelloWorld</li>
+<li><code>{{ 'Hello World' | train_case }}</code>    =&gt; hello-world</li>
+<li><code>{{ 'Hello World' | constant_case }}</code> =&gt; HELLO_WORLD</li>
+<li><code>{{ 'helloWorld' | title_case }}</code>     =&gt; Hello World</li>
+<li><code>{{ 'HELLO_WORLD' | train_case }}</code>    =&gt; hello-world</li>
+</ul>
+<h2><a class="header" href="#smart-pluralization-and-singularization" id="smart-pluralization-and-singularization">Smart Pluralization and Singularization</a></h2>
+<p>Most content generators that provide any kind of pluralization capability generally check to see if your input ends with
+and 's' or not, and adds one if it's missing. Archetect is a capable of applying correct pluralizations and singularizations
+based on the rules and exceptions of the English Language.</p>
+<ul>
+<li><code>{{ 'soliloquy' | pluralize }}</code> =&gt; soliloquies</li>
+<li><code>{{ 'calf' | pluralize }}</code> =&gt; calves</li>
+<li><code>{{ 'gas' | pluralize }}</code> =&gt; gases</li>
+<li><code>{{ 'tax' | pluralize }}</code> =&gt; taxes</li>
+<li><code>{{ 'wife' | pluralize }}</code> =&gt; wives</li>
+</ul>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
 <p>Getting started with Archetect is considerably easier than many content generators, but there are a few steps you'll want follow to ensure you're ready to go.</p>
 <p>First, you'll need to check off a prerequisite or two first, which are likely already satisfied if you write a lot code, as opposed to, say, generating it.</p>
