@@ -25,12 +25,13 @@ have been added that make it trivial to convert inputs from any casing shape to 
 
 ## Smart Pluralization and Singularization
 
-Most content generators that provide any kind of pluralization capability generally check to see if your input ends with
-and 's' or not, and adds one if it's missing. Archetect is a capable of applying correct pluralizations and singularizations
-based on the rules and exceptions of the English Language.
+Most content generators that provide any sort of pluralization capability generally check to see if your input ends with
+an 's' or not, and then adds one if it's missing. Archetect applies correct pluralizations and singularizations
+based on the rules of, and exceptions to, the English Language.
 
 * `{{ 'soliloquy' | pluralize }}` => soliloquies
 * `{{ 'calf' | pluralize }}` => calves
 * `{{ 'gas' | pluralize }}` => gases
 * `{{ 'tax' | pluralize }}` => taxes
 * `{{ 'wife' | pluralize }}` => wives
+* `{{ 'cactus' | pluralize }}` => cacti
