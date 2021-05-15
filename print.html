@@ -203,15 +203,16 @@ have been added that make it trivial to convert inputs from any casing shape to 
 <li><code>{{ 'HELLO_WORLD' | train_case }}</code>    =&gt; hello-world</li>
 </ul>
 <h2><a class="header" href="#smart-pluralization-and-singularization" id="smart-pluralization-and-singularization">Smart Pluralization and Singularization</a></h2>
-<p>Most content generators that provide any kind of pluralization capability generally check to see if your input ends with
-and 's' or not, and adds one if it's missing. Archetect is a capable of applying correct pluralizations and singularizations
-based on the rules and exceptions of the English Language.</p>
+<p>Most content generators that provide any sort of pluralization capability generally check to see if your input ends with
+an 's' or not, and then adds one if it's missing. Archetect applies correct pluralizations and singularizations
+based on the rules of, and exceptions to, the English Language.</p>
 <ul>
 <li><code>{{ 'soliloquy' | pluralize }}</code> =&gt; soliloquies</li>
 <li><code>{{ 'calf' | pluralize }}</code> =&gt; calves</li>
 <li><code>{{ 'gas' | pluralize }}</code> =&gt; gases</li>
 <li><code>{{ 'tax' | pluralize }}</code> =&gt; taxes</li>
 <li><code>{{ 'wife' | pluralize }}</code> =&gt; wives</li>
+<li><code>{{ 'cactus' | pluralize }}</code> =&gt; cacti</li>
 </ul>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
 <p>Getting started with Archetect is considerably easier than many content generators, but there are a few steps you'll want follow to ensure you're ready to go.</p>
