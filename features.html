@@ -172,10 +172,16 @@
 <li>Easy to Use archetypes</li>
 <li>Usable within an Enterprise Environment</li>
 </ul>
-<p>To meet these goals, Archetect has some core features which are fairly unique amongst content generators.</p>
-<h2><a class="header" href="#smart-casing-functions" id="smart-casing-functions">Smart Casing Functions</a></h2>
-<p>Archetect's templating <a href="https://github.com/Keats/tera">Tera</a>, a Jinja2-like templating engine.  Smart casing functions 
-have been added that make it trivial to convert inputs from any casing shape to any other casing shape.</p>
+<p>To meet these goals, Archetect has some core features unique amongst content generators.</p>
+<h2><a class="header" href="#templating" id="templating">Templating</a></h2>
+<p>Archetect leverages a Jinja2-like templating engine for generating content, with some unique extensions that make it
+easy to achieve common templating task without the need for custom scripting.</p>
+<h3><a class="header" href="#smart-casing-functions" id="smart-casing-functions">Smart Casing Functions</a></h3>
+<p>If an archetype author requests a consumer of their archetype to supply the name for a project, what happens if input is 
+supplied that contains spaces in the name?  How could the author safely use this input as a Java class name, as a field 
+name, or a database column name?</p>
+<p>Archetect's casing functions are capable of breaking inputs apart based on casing boundaries and reshape in various ways
+as needed throughout the archetype:</p>
 <ul>
 <li><code>{{ 'Hello World' | snake_case }}</code>    =&gt; hello_world</li>
 <li><code>{{ 'Hello World' | camel_case }}</code>    =&gt; helloWorld</li>
@@ -185,10 +191,13 @@ have been added that make it trivial to convert inputs from any casing shape to 
 <li><code>{{ 'helloWorld' | title_case }}</code>     =&gt; Hello World</li>
 <li><code>{{ 'HELLO_WORLD' | train_case }}</code>    =&gt; hello-world</li>
 </ul>
-<h2><a class="header" href="#smart-pluralization-and-singularization" id="smart-pluralization-and-singularization">Smart Pluralization and Singularization</a></h2>
-<p>Most content generators that provide any sort of pluralization capability generally check to see if your input ends with
-an 's' or not, and then adds one if it's missing. Archetect applies correct pluralizations and singularizations
-based on the rules of, and exceptions to, the English Language.</p>
+<h3><a class="header" href="#smart-pluralization" id="smart-pluralization">Smart Pluralization</a></h3>
+<p>Most content generators that provide any sort of pluralization capability generally check to see if inputs end with
+an 's' or not, and then simply tack one on as necessary. </p>
+<p>Archetect applies correct pluralizations based on the rules of, and 
+exceptions to, the English Language.</p>
+<p>As an example, if an archetype consumer inputs 'soliloquy' as the name of a new microservice, the archetype author can 
+take this input and ensure that a generated REST API has a <code>GET /soliloquies/</code> endpoint, with a <code>Soliloquy</code> object model.</p>
 <ul>
 <li><code>{{ 'soliloquy' | pluralize }}</code> =&gt; soliloquies</li>
 <li><code>{{ 'calf' | pluralize }}</code> =&gt; calves</li>
