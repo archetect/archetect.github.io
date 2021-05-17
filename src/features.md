@@ -68,10 +68,10 @@ of an archetype.
 Archetypes not only can refer to one or more directories to render, but also other archetypes.  This can allow for 
 interesting compositions.  As examples:
 
-* Having a common foundational archetype that contains content that should be rendered in all other archetypes, while 
-  avoiding duplications and maintenance across multiple archetypes.
+* Having a common foundational archetype that contains content that should be shared across many other archetypes, while 
+  avoiding duplication and maintenance across all of them.
 * Having different archetypes for various remoting and database layers, and using conditional rendering to mix and match
-  these technologies in various combinations.  For instance, a composting archetype could ask "What kind of remoting
+  these technologies in different combinations.  For instance, a composting archetype could ask "What kind of remoting
   layer would you like? [gRPC, OpenAPI, Thrift, Hessian]", and "What kind of database layer would you like? 
-  [JPA, DynamoDB, Cassandra]".
+  [JPA, DynamoDB, Cassandra]", and render each of the selected technologies together in a unified output.
 
