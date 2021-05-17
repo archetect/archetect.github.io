@@ -50,3 +50,28 @@ take this input and ensure that a generated REST API has a `GET /soliloquies/` e
 * `{{ 'wife' | pluralize }}` => wives
 * `{{ 'cactus' | pluralize }}` => cacti
 
+## Configuration
+
+In the simplest case, an archetype is nothing more than a directory with an archetype.yml file at the root.  This file 
+is a templating-aware DSL for describing how to acquire inputs, either interactively or through answer parameters of files, 
+and how to render templated content based on those inputs.
+
+### Conditional Rendering
+
+Archetect does not prescribe a specific directory structure for holding templated content.  Instructions in the archetype.yml
+file are used to tell Archetect what to render.  Multiple target template directories can be rendered, conditionally if
+desired, allowing for projects to be generated with features as determined based on the inputs acquired from the consumer 
+of an archetype.
+
+### Composition
+
+Archetypes not only can refer to one or more directories to render, but also other archetypes.  This can allow for 
+interesting compositions.  As examples:
+
+* Having a common foundational archetype that contains content that should be rendered in all other archetypes, while 
+  avoiding duplications and maintenance across multiple archetypes.
+* Having different archetypes for various remoting and database layers, and using conditional rendering to mix and match
+  these technologies in various combinations.  For instance, a composting archetype could ask "What kind of remoting
+  layer would you like? [gRPC, OpenAPI, Thrift, Hessian]", and "What kind of database layer would you like? 
+  [JPA, DynamoDB, Cassandra]".
+
