@@ -1,1 +1,1 @@
-# Authoring Guide
+# Archetype Authoring: Step by Step
