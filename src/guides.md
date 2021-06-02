@@ -1,6 +1,6 @@
 # Guides
 
-## [Creating an Archetype, Step by Step](guides/authoring/step_by_step.md)
+## [Creating an Archetype, Step by Step](guides/authoring/basics.md)
 
 Build an archetype incrementally from scratch.
 
