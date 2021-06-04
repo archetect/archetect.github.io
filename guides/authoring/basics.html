@@ -296,13 +296,20 @@ script:
           public void printMessage() {
               System.out.println(&quot;This is a contrived example. You can try this at home... but don't try it at work!&quot;);
           }
+    
+          public static void main(String[] args) {
+              {{ ClassName }}.getInstance().printMessage();
+          }
       }
 
 </code></pre>
 <p>Render the script to the screen, and then render it to a file.  Use inputs like 'SingletonGreeter', 'singleton 
 greeter', etc as your input, and notice that your Java code will be rendered correctly in most reasonable cases.</p>
-<pre><code class="language-shell">archetect render script.yml &gt; output.txt
+<pre><code class="language-shell">archetect render script.yml &gt; SingletonGreeter.java
+javac SingletonGreeter.java
+java SingletonGreeter
 </code></pre>
+<p>Whoa!  Now we're cookin'!</p>
 <p>Take notice that for two of the variables defined with the <code>set</code> command, we explicitly set their values derived 
 from the previously set variable instead of prompting for a value.  These derived variables are in the same shape as 
 the casing functions applied. This is a common convention used in Archetect archetypes: take an input, and then create 
