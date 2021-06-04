@@ -6,7 +6,7 @@ Let's begin making our first archetype, step by step, building up concepts as we
 
 Archetect gets it's instructions from a configuration file containing a simple, domain-specific scripting language.
 
-Create a directory to start your archetype in. Then, create a YAML file at the root of this directory.  For now, let's 
+Create a directory to start your archetype in. Then, create a YAML file at the root of this directory. For now, let's
 call it `script.yml`:
 
 ```yaml
@@ -19,7 +19,9 @@ Within this directory, we can 'render' this script as follows:
 archetect render script.yml
 ```
 
-Printing "Hello, World!" is fine and dandy, but not particularly interesting.  Modify our script to look as follows:
+## Prompting for Input
+
+Printing "Hello, World!" is fine and dandy, but not particularly interesting. Modify our script to look as follows:
 
 ```yaml
 {{#include basics_code.md:step_02}}
@@ -30,8 +32,8 @@ custom greeting to the screen.
 
 ## Using Functions
 
-With our initial script, the `name` variable implies a proper noun.  But currently, nothing stops someone using the 
-script from entire in any of the following:
+With our initial script, the `name` variable implies a proper noun. But currently, nothing stops someone using the
+script from entering in any of the following:
 
 * jane
 * JANE
@@ -41,15 +43,72 @@ script from entire in any of the following:
 * JANE_DOE
 * JANE DOE
 
-Archetect makes it easy for archetype authors to accept inputs any way a user wants to provide them, providing all 
-the tools necessary to reshape the inputs as needed based on the context where the inputs will be used.
+Archetect makes it easy for archetype authors to accept inputs any way a user might enter them, providing all the tools
+necessary to reshape the inputs as needed based on the context where the inputs will be used.
 
-Let's update our script so that our input is piped through a function, `title_case`, which will reshape the input to 
-ensure our welcome message is formatted correctly.  Use Archetect to render the script multiple times using the 
-example inputs listed above.  Also, try entering in an empty string to see what happens. 
+Let's update our script so that our input is piped through a function, `title_case`, which will reshape the input to
+ensure our welcome message is formatted correctly. Use Archetect to render the script multiple times using the example
+inputs listed above. Also, try entering in an empty string to see what happens.
 
 ```yaml
 {{#include basics_code.md:step_03}}
 ```
 
+## Output
+
+In addition to the rendering capabilities we'll get to in the chapter on rendering, Archetect provides multiple ways for
+outputting to both STDERR and STDOUT. Generally prompts, such as asking for input with the `set` action, and
+informational messages using the `display`, `trace`, `debug`, `info`, `warn`, and `error` actions print to STDERR.
+The `print` action sends output to STDOUT. This provides you tools to design an interactive CLI experience, yet allow
+select output to be piped to a file. Let's try these out:
+
+```yaml
+{{#include basics_code.md:step_04}}
+```
+
+Render the script using Archetect as we've done before, trying various inputs to see how they behave:
+
+```shell
+archetect render script.yml
+```
+
+Notice that the first two lines, corresponding to the `trace` and `debug` actions, do not show up. We need to increase
+the verbosity of output to see them using the -v, or --verbose option. Passing a single -v allows debug output, and
+passing two also allows for trace output.
+
+```shell
+archetect render script.yml -v
+archetect render script.yml -vv
+```
+
+We can see that both the `print` and `display` actions are both printing to the screen. However, if we pipe the output
+to a file, we will only see outputs from the `display` action; the `print` action will show up in the file and nothing
+else. Let's try it:
+
+```shell
+archetect render script.yml -v > output.txt
+```
+
+## Putting It Together
+
+The rendering capabilities we'll cover in the next chapter are Archetect's bread and butter, but we can use the tools
+provided so far to allow us to interactively generate basic code that we can pipe anywhere.  We could use this to 
+generate simple bits of JSON, YAML, SQL, etc.
+
+```yaml
+{{#include basics_code.md:step_05}}
+```
+
+Render the script to the screen, and then render it to a file.  Use something like 'SingletonGreeter', 'singleton 
+greeter', etc as your input.
+
+```shell
+archetect render script.yml > output.txt
+```
+
+Take notice that for two of the variables defined in the `set` command, we set a value derived from previously set 
+variable instead of prompting for it.  And we shaped the variable names in the casing as would be needed in the 
+template.  This is a common convention used in Archetect archetypes: take an input, and then create multiple case 
+variations that can be used throughout complex templates.  This is much preferable over repeatedly using the same 
+functions everywhere!  This becomes especially important as we start using variable in directory structures.
 
