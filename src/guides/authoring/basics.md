@@ -103,8 +103,12 @@ Render the script to the screen, and then render it to a file.  Use inputs like 
 greeter', etc as your input, and notice that your Java code will be rendered correctly in most reasonable cases.
 
 ```shell
-archetect render script.yml > output.txt
+archetect render script.yml > SingletonGreeter.java
+javac SingletonGreeter.java
+java SingletonGreeter
 ```
+
+Whoa!  Now we're cookin'!
 
 Take notice that for two of the variables defined with the `set` command, we explicitly set their values derived 
 from the previously set variable instead of prompting for a value.  These derived variables are in the same shape as 
