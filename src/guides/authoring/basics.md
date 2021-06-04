@@ -99,16 +99,17 @@ generate simple bits of JSON, YAML, SQL, etc.
 {{#include basics_code.md:step_05}}
 ```
 
-Render the script to the screen, and then render it to a file.  Use something like 'SingletonGreeter', 'singleton 
-greeter', etc as your input.
+Render the script to the screen, and then render it to a file.  Use inputs like 'SingletonGreeter', 'singleton 
+greeter', etc as your input, and notice that your Java code will be rendered correctly in most reasonable cases.
 
 ```shell
 archetect render script.yml > output.txt
 ```
 
-Take notice that for two of the variables defined in the `set` command, we set a value derived from previously set 
-variable instead of prompting for it.  And we shaped the variable names in the casing as would be needed in the 
-template.  This is a common convention used in Archetect archetypes: take an input, and then create multiple case 
-variations that can be used throughout complex templates.  This is much preferable over repeatedly using the same 
-functions everywhere!  This becomes especially important as we start using variable in directory structures.
+Take notice that for two of the variables defined with the `set` command, we explicitly set their values derived 
+from the previously set variable instead of prompting for a value.  These derived variables are in the same shape as 
+the casing functions applied. This is a common convention used in Archetect archetypes: take an input, and then create 
+multiple variables in the cases required throughout a complex template.  This is much preferable over repeatedly 
+using the same functions everywhere, and makes it much easier to author and read the template later!  This practice 
+becomes especially important as we start using variables in directory structures.
 
