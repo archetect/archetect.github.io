@@ -1,4 +1,4 @@
-# Basics: Step by Step
+# Step 1: Some Basics
 
 Let's begin making our first archetype, step by step, building up concepts as we go.
 
