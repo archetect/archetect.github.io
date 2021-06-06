@@ -1,1 +1,1 @@
-# Step 2: Archetype Structure
+# Structuring an Archetype

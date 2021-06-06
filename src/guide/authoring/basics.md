@@ -1,4 +1,4 @@
-# Step 1: Some Basics
+# Some Basics
 
 Let's begin making our first archetype, step by step, building up concepts as we go.
 
@@ -56,11 +56,11 @@ inputs listed above. Also, try entering in an empty string to see what happens.
 
 ## Output
 
-In addition to the rendering capabilities we'll get to in the chapter on rendering, Archetect provides multiple ways for
-outputting to both STDERR and STDOUT. Generally prompts, such as asking for input with the `set` action, and
-informational messages using the `display`, `trace`, `debug`, `info`, `warn`, and `error` actions print to STDERR.
-The `print` action sends output to STDOUT. This provides you tools to design an interactive CLI experience, yet allow
-select output to be piped to a file. Let's try these out:
+In addition to the rendering capabilities we'll beging exploring in [Step 2: Archetype Structure](structure.md), 
+Archetect provides multiple ways for outputting to both STDERR and STDOUT. Generally prompts, such as asking for 
+input with the `set` action, and informational messages using the `display`, `trace`, `debug`, `info`, `warn`, and 
+`error` actions print to STDERR. The `print` action sends output to STDOUT. This provides you tools to design an 
+interactive CLI experience, yet allow select output to be piped to a file. Let's try these out:
 
 ```yaml
 {{#include basics_code.md:step_04}}
