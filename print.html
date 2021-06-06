@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="archetect.html">Archetect</a></li><li class="chapter-item affix "><a href="features.html">Features</a></li><li class="chapter-item "><a href="getting_started.html"><strong aria-hidden="true">1.</strong> Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="getting_started/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="getting_started/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item "><a href="getting_started/post.html"><strong aria-hidden="true">1.3.</strong> Post Configuration</a></li></ol></li><li class="chapter-item "><a href="guide.html"><strong aria-hidden="true">2.</strong> Guide</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="guide/authoring/basics.html"><strong aria-hidden="true">2.1.</strong> Step 1: Some Basics</a></li><li class="chapter-item "><a href="guide/authoring/structure.html"><strong aria-hidden="true">2.2.</strong> Step 2: Archetype Structure</a></li></ol></li><li class="chapter-item "><a href="configuration_reference.html"><strong aria-hidden="true">3.</strong> Configuration Reference</a></li><li class="chapter-item "><a href="templating_reference.html"><strong aria-hidden="true">4.</strong> Templating Reference</a></li><li class="chapter-item "><a href="recipes.html"><strong aria-hidden="true">5.</strong> Recipes</a></li><li class="chapter-item affix "><a href="credits.html">Credits</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="archetect.html">Archetect</a></li><li class="chapter-item affix "><a href="features.html">Features</a></li><li class="chapter-item "><a href="getting_started.html"><strong aria-hidden="true">1.</strong> Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="getting_started/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="getting_started/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item "><a href="getting_started/post.html"><strong aria-hidden="true">1.3.</strong> Post Configuration</a></li></ol></li><li class="chapter-item "><a href="guide.html"><strong aria-hidden="true">2.</strong> Guide</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="guide/authoring/basics.html"><strong aria-hidden="true">2.1.</strong> Some Basics</a></li><li class="chapter-item "><a href="guide/authoring/structure.html"><strong aria-hidden="true">2.2.</strong> Structuring an Archetype</a></li></ol></li><li class="chapter-item "><a href="configuration_reference.html"><strong aria-hidden="true">3.</strong> Configuration Reference</a></li><li class="chapter-item "><a href="templating_reference.html"><strong aria-hidden="true">4.</strong> Templating Reference</a></li><li class="chapter-item "><a href="recipes.html"><strong aria-hidden="true">5.</strong> Recipes</a></li><li class="chapter-item affix "><a href="credits.html">Credits</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -331,11 +331,11 @@ answers:
     value: &quot;jfulton&quot;
 </code></pre>
 <h1><a class="header" href="#guide" id="guide">Guide</a></h1>
-<h2><a class="header" href="#a-hrefguideauthoringbasicshtmlstep-1-some-basicsa" id="a-hrefguideauthoringbasicshtmlstep-1-some-basicsa"><a href="guide/authoring/basics.html">Step 1: Some Basics</a></a></h2>
+<h2><a class="header" href="#a-hrefguideauthoringbasicshtmlsome-basicsa" id="a-hrefguideauthoringbasicshtmlsome-basicsa"><a href="guide/authoring/basics.html">Some Basics</a></a></h2>
 <p>Getting started by introducing a few basics.</p>
-<h2><a class="header" href="#a-hrefguideauthoringstructurehtmlstep-2-structuring-an-archetypea" id="a-hrefguideauthoringstructurehtmlstep-2-structuring-an-archetypea"><a href="guide/authoring/structure.html">Step 2: Structuring an Archetype</a></a></h2>
-<p>Taking steps to laying out an archetype's structure.</p>
-<h1><a class="header" href="#step-1-some-basics" id="step-1-some-basics">Step 1: Some Basics</a></h1>
+<h2><a class="header" href="#a-hrefguideauthoringstructurehtmlstructuring-an-archetypea" id="a-hrefguideauthoringstructurehtmlstructuring-an-archetypea"><a href="guide/authoring/structure.html">Structuring an Archetype</a></a></h2>
+<p>Beging laying out the structure of our archetype.</p>
+<h1><a class="header" href="#some-basics" id="some-basics">Some Basics</a></h1>
 <p>Let's begin making our first archetype, step by step, building up concepts as we go.</p>
 <h2><a class="header" href="#creating-our-script" id="creating-our-script">Creating our Script</a></h2>
 <p>Archetect gets it's instructions from a configuration file containing a simple, domain-specific scripting language.</p>
@@ -389,11 +389,11 @@ script:
   - info: &quot;Hello, {{ name | title_case }}!&quot;
 </code></pre>
 <h2><a class="header" href="#output" id="output">Output</a></h2>
-<p>In addition to the rendering capabilities we'll get to in the chapter on rendering, Archetect provides multiple ways for
-outputting to both STDERR and STDOUT. Generally prompts, such as asking for input with the <code>set</code> action, and
-informational messages using the <code>display</code>, <code>trace</code>, <code>debug</code>, <code>info</code>, <code>warn</code>, and <code>error</code> actions print to STDERR.
-The <code>print</code> action sends output to STDOUT. This provides you tools to design an interactive CLI experience, yet allow
-select output to be piped to a file. Let's try these out:</p>
+<p>In addition to the rendering capabilities we'll beging exploring in <a href="guide/authoring/structure.html">Step 2: Archetype Structure</a>, 
+Archetect provides multiple ways for outputting to both STDERR and STDOUT. Generally prompts, such as asking for 
+input with the <code>set</code> action, and informational messages using the <code>display</code>, <code>trace</code>, <code>debug</code>, <code>info</code>, <code>warn</code>, and 
+<code>error</code> actions print to STDERR. The <code>print</code> action sends output to STDOUT. This provides you tools to design an 
+interactive CLI experience, yet allow select output to be piped to a file. Let's try these out:</p>
 <pre><code class="language-yaml">---
 script:
 
@@ -488,7 +488,7 @@ the casing functions applied. This is a common convention used in Archetect arch
 multiple variables in the cases required throughout a complex template.  This is much preferable over repeatedly 
 using the same functions everywhere, and makes it much easier to author and read the template later!  This practice 
 becomes especially important as we start using variables in directory structures.</p>
-<h1><a class="header" href="#step-2-archetype-structure" id="step-2-archetype-structure">Step 2: Archetype Structure</a></h1>
+<h1><a class="header" href="#structuring-an-archetype" id="structuring-an-archetype">Structuring an Archetype</a></h1>
 <h1><a class="header" href="#credits" id="credits">Credits</a></h1>
 <p>These are some of the key libraries that are core to Archetect's functionality':</p>
 <ul>
