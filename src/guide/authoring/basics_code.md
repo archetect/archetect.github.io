@@ -49,7 +49,7 @@ script:
   - display: |
       We can use YAML multi-line syntax.  This syntax preserves newlines.
 
-        Isn't  it cool?
+        Isn't it cool?
 
   - display: >
       This syntax discards newlines.
