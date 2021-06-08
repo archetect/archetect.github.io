@@ -164,6 +164,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#structuring-an-archetype" id="structuring-an-archetype">Structuring an Archetype</a></h1>
+<p>Using inline templates within our script is not very practical.  For once, we can only pipe out one file.  Second, 
+in the case of our example, we have to enter in the name of our class twice (one when prompted by Archetect, and two 
+when specify the file name to pipe to), making error-prone to ensure these match.</p>
+<p>We can do a lot better.</p>
+<p>Archetect provides a <code>render</code> command that allows us to specify a directory of templates to read files from, or 
+another archetype being composed by this archetype.</p>
 
                     </main>
 
