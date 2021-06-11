@@ -56,11 +56,11 @@ inputs listed above. Also, try entering in an empty string to see what happens.
 
 ## Output
 
-In addition to the rendering capabilities we'll beging exploring in [Step 2: Archetype Structure](structure.md), 
+In addition to the rendering capabilities we'll begin exploring in [Structuring an Archetype](structure.md), 
 Archetect provides multiple ways for outputting to both STDERR and STDOUT. Generally prompts, such as asking for 
 input with the `set` action, and informational messages using the `display`, `trace`, `debug`, `info`, `warn`, and 
 `error` actions print to STDERR. The `print` action sends output to STDOUT. This provides you tools to design an 
-interactive CLI experience, yet allow select output to be piped to a file. Let's try these out:
+interactive CLI experience, yet allow select output to be piped to a file. Let's start trying these out:
 
 ```yaml
 {{#include basics_code.md:step_04}}
@@ -72,21 +72,13 @@ Render the script using Archetect as we've done before, trying various inputs to
 archetect render script.yml
 ```
 
-Notice that the first two lines, corresponding to the `trace` and `debug` actions, do not show up. We need to increase
-the verbosity of output to see them using the -v, or --verbose option. Passing a single -v allows debug output, and
-passing two also allows for trace output.
+Notice that the line corresponding to the `debug` action did not show up. We need to increase the verbosity of output to 
+see it by using the -v, or --verbose option.  If we were to have a `trace`, we would need to pass an additional `-v`,
+as well.
 
 ```shell
 archetect render script.yml -v
 archetect render script.yml -vv
-```
-
-We can see that both the `print` and `display` actions are both printing to the screen. However, if we pipe the output
-to a file, we will only see outputs from the `display` action; the `print` action will show up in the file and nothing
-else. Let's try it:
-
-```shell
-archetect render script.yml -v > output.txt
 ```
 
 ## Putting It Together
@@ -99,12 +91,15 @@ generate simple bits of JSON, YAML, SQL, etc.
 {{#include basics_code.md:step_05}}
 ```
 
-Render the script to the screen, and then render it to a file.  Use inputs like 'SingletonGreeter', 'singleton 
+While actions like `trace`, `debug`, `info`, `warn`, `error`, and `display` all output to `STDERR`, the `print` command
+outputs to `STDOUT`.
+
+Render the script to the screen, and then render it to a file.  Use inputs like 'SingletonGreeter', 'singleton
 greeter', etc as your input, and notice that your Java code will be rendered correctly in most reasonable cases.
 
 ```shell
 archetect render script.yml > SingletonGreeter.java
-javac SingletonGreeter.java
+javac SingletonGreeter.java                                                               
 java SingletonGreeter
 ```
 

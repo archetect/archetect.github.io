@@ -33,30 +33,30 @@ script:
 script:
 
   - set:
-      name:
-        prompt: "What is your name?"
-
-  - trace: "camelCased: {{ name | camel_case }}"
-  - debug: "train-cased: {{ name | train_case }}"
-  - info: "snake_cased: {{ name | snake_case }}"
-  - warn: "CONSTANT_CASED: {{ name | constant_case }}"
-  - error: "PascalCased: {{ name | pascal_case }}"
-
-  - display: ""
-  - display: "This text, like the messages above, is going to STDERR"
-  - display: ""
-
+    name:
+    prompt: "What is your name?"
+  
+  - display: "Hello, {{ name | title_case }}!"
+  
   - display: |
-      We can use YAML multi-line syntax.  This syntax preserves newlines.
-
-        Isn't it cool?
-
-  - display: >
-      This syntax discards newlines.
-
-      The following text is going to STDOUT.
-
-  - print: "Hello, {{ name | title_case }}!"
+  
+    Let's generate a simple Java class...
+  
+    We'll begin by prompting for the name of our class, and then create variables in different casings as needed
+    in our template.
+  
+  - set:
+    class:
+    prompt: "What is the name of your class?"
+  
+    ClassName:
+    value: "{{ class | pascal_case }}"
+  
+    className:
+    value: "{{ class | camel_case }}"
+  
+  - info: "Our PascalCased class name is '{{ ClassName }}'"
+  - debug: "Our camelCased field name is '{{ className }}'"
 
 // ANCHOR_END: step_04
 
@@ -65,32 +65,48 @@ script:
 script:
 
   - set:
-      class:
-        prompt: "What is the name of your class?"
-
-      ClassName:
-        value: "{{ class | pascal_case }}"
-
-      className:
-        value: "{{ class | camel_case }}"
-
+    name:
+    prompt: "What is your name?"
+  
+  - display: "Hello, {{ name | title_case }}!"
+  
+  - display: |
+  
+    Let's generate a simple Java class...
+  
+    We'll begin by prompting for the name of our class, and then create variables in different casings as needed
+    in our template.
+  
+  - set:
+    class:
+    prompt: "What is the name of your class?"
+  
+    ClassName:
+    value: "{{ class | pascal_case }}"
+  
+    className:
+    value: "{{ class | camel_case }}"
+  
+  - info: "Our PascalCased class name is '{{ ClassName }}'"
+  - debug: "Our camelCased field name is '{{ className }}'"
+  
+  
   - print: |
-      public class {{ ClassName }} {
-          private static {{ ClassName }} {{ className }} = new {{ ClassName }}();
-
+    public class {{ ClassName }} {
+    private static {{ ClassName }} {{ className }} = new {{ ClassName }}();
+  
           private {{ ClassName }}(){}
-
+  
           public static {{ ClassName }} getInstance(){
              return {{ className }};
           }
-
+  
           public void printMessage() {
               System.out.println("This is a contrived example. You can try this at home... but don't try it at work!");
           }
-    
+  
           public static void main(String[] args) {
               {{ ClassName }}.getInstance().printMessage();
           }
-      }
-
+    }
 // ANCHOR_END: step_05
