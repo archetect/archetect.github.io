@@ -1,5 +1,12 @@
 # Structuring an Archetype
 
+If you are following along with the [archetect-tutorial](https://github.com/archetect/archetect-tutorial), you can
+switch to this section's examples from within the directory where it was check out:
+
+```shell
+    git checkout 02_structure
+```
+
 Using inline templates within our script is not very practical.  For one, we can only pipe out one file.  This 
 might prove convenient to generate a single bit of JSON, YAML, or SQL.  For programming languages, the file names 
 often correlate to the name of structures in the file itself.  Take Java for instance; we have to enter in the name of 

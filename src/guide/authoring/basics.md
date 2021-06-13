@@ -1,6 +1,13 @@
 # Some Basics
 
-Let's begin making our first archetype, step by step, building up concepts as we go.
+If you are following along with the [archetect-tutorial](https://github.com/archetect/archetect-tutorial), you can
+switch to this section's examples from within the directory where it was check out:
+
+```shell
+    git checkout 01_basics
+```
+
+Let's begin making our first archetype, step by step, building up concepts as we go.  
 
 ## Creating our Script
 
