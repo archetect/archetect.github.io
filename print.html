@@ -331,14 +331,15 @@ answers:
     value: &quot;jfulton&quot;
 </code></pre>
 <h1><a class="header" href="#guide" id="guide">Guide</a></h1>
-<p>This guide takes you through the basics, and then presents new capabilities and features within each section.  The 
-completed work of each section is captured as branches in the <a href="https://github.com/archetect/archetect-tutorial">archetect-tutorial</a> Git 
-repo, which you can check out and review, or even render with Archetect.</p>
-<p>If you'd like to use the companion tutorial, first switch into a directory where you keep projects, and then clone 
-tutorial's Git repo:</p>
+<p>This guide starts with the basics, and then presents new capabilities and features as we progress through each section.
+The completed work of each section is captured as branches in the 
+<a href="https://github.com/archetect/archetect-tutorial">archetect-tutorial</a> Git repo, so you can progress through this 
+guide and the tutorial examples at the same time.</p>
+<p>If you'd like to use the companion tutorial examples, first switch into a directory where you keep projects, and then 
+clone the tutorial's Git repo:</p>
 <pre><code class="language-shell">    git clone https://github.com/archetect/archetect-tutorial.git
 </code></pre>
-<p>You visit each section by using git to list them out and then check out the branch that interests you.</p>
+<p>You can visit each section by using git to list them out and then check out the corresponding branch that interests you.</p>
 <pre><code class="language-shell">    git branch
     git checkout 01_basics
 </code></pre>
@@ -347,6 +348,10 @@ tutorial's Git repo:</p>
 <h2><a class="header" href="#a-hrefguideauthoringstructurehtmlstructuring-an-archetypea" id="a-hrefguideauthoringstructurehtmlstructuring-an-archetypea"><a href="guide/authoring/structure.html">Structuring an Archetype</a></a></h2>
 <p>Beging laying out the structure of our archetype.</p>
 <h1><a class="header" href="#some-basics" id="some-basics">Some Basics</a></h1>
+<p>If you are following along with the <a href="https://github.com/archetect/archetect-tutorial">archetect-tutorial</a>, you can
+switch to this section's examples from within the directory where it was check out:</p>
+<pre><code class="language-shell">    git checkout 01_basics
+</code></pre>
 <p>Let's begin making our first archetype, step by step, building up concepts as we go.</p>
 <h2><a class="header" href="#creating-our-script" id="creating-our-script">Creating our Script</a></h2>
 <p>Archetect gets it's instructions from a configuration file containing a simple, domain-specific scripting language.</p>
@@ -513,6 +518,10 @@ multiple variables in the cases required throughout a complex template.  This is
 using the same functions everywhere, and makes it much easier to author and read the template later!  This practice 
 becomes especially important as we start using variables in directory structures.</p>
 <h1><a class="header" href="#structuring-an-archetype" id="structuring-an-archetype">Structuring an Archetype</a></h1>
+<p>If you are following along with the <a href="https://github.com/archetect/archetect-tutorial">archetect-tutorial</a>, you can
+switch to this section's examples from within the directory where it was check out:</p>
+<pre><code class="language-shell">    git checkout 02_structure
+</code></pre>
 <p>Using inline templates within our script is not very practical.  For one, we can only pipe out one file.  This 
 might prove convenient to generate a single bit of JSON, YAML, or SQL.  For programming languages, the file names 
 often correlate to the name of structures in the file itself.  Take Java for instance; we have to enter in the name of 
