@@ -15,6 +15,75 @@ specifying the file name to pipe to), making this error-prone to ensure these ma
 
 We can do a lot better.
 
-Archetect provides a `render` command that allows us to specify a directory of templates to read files from, or 
+Archetect provides a `render` action that allows us to specify a directory of templates to read files from, or 
 another archetype being composed by this archetype.  Not only can we use variables within the templates, but we can 
 also use them in the directory and file names themselves.
+
+## Refactoring
+
+So far, we've been rendering the `script.yml` file.  However, Archetypes are usually contained within a directory or
+Git repository, and we can't always specify the name of a script to render.
+
+Instead, we generally specify the path to a directory or the git URL.  By convention, Archetect looks for either 
+`archetype.yml` or `archetype.yaml` at the root of the directory.  Let's fix this:
+
+```shell
+mv script.yml archetect.yml
+```
+
+Now, we will instead specify the directory to render instead of the YAML file:
+
+```shell
+archetect render ./
+```
+
+Now, let's create a directory to store our templates in, and move our Java template into a file within:
+
+```shell
+mkdir contents
+touch "contents/{{ ClassName }}.java"
+```
+
+Copy and paste the Java class from our initial script into the new file, and format it appropriately:
+
+```java
+public class {{ ClassName }} {
+    private static {{ ClassName }} {{ className }} = new {{ ClassName }}();
+    
+    private {{ ClassName }}(){}
+    
+    public static {{ ClassName }} getInstance(){
+        return {{ className }};
+    }
+    
+    public void printMessage() {
+        System.out.println("This is a contrived example. You can try this at home... but don't try it at work!");
+    }
+    
+    public static void main(String[] args) {
+        {{ ClassName }}.getInstance().printMessage();
+    }
+}
+```
+
+With these changes, we can reformat our `archetype.yml` file to make use of our new templates directory:
+
+```yaml
+---
+script:
+
+  - set:
+      class:
+        prompt: "What is the name of your class?"
+
+      ClassName:
+        value: "{{ class | pascal_case }}"
+
+      className:
+        value: "{{ class | camel_case }}"
+
+  - render:
+      directory:
+        source: contents
+```
+
