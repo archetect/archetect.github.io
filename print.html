@@ -528,9 +528,60 @@ some programming languages, the file names often correlate to the name of struct
 Java for instance; we have to enter in the name of our class twice (first when prompted by Archetect, and second when 
 specifying the file name to pipe to), making this error-prone to ensure these match.</p>
 <p>We can do a lot better.</p>
-<p>Archetect provides a <code>render</code> command that allows us to specify a directory of templates to read files from, or 
+<p>Archetect provides a <code>render</code> action that allows us to specify a directory of templates to read files from, or 
 another archetype being composed by this archetype.  Not only can we use variables within the templates, but we can 
 also use them in the directory and file names themselves.</p>
+<h2><a class="header" href="#refactoring" id="refactoring">Refactoring</a></h2>
+<p>So far, we've been rendering the <code>script.yml</code> file.  However, Archetypes are usually contained within a directory or
+Git repository, and we can't always specify the name of a script to render.</p>
+<p>Instead, we generally specify the path to a directory or the git URL.  By convention, Archetect looks for either 
+<code>archetype.yml</code> or <code>archetype.yaml</code> at the root of the directory.  Let's fix this:</p>
+<pre><code class="language-shell">mv script.yml archetect.yml
+</code></pre>
+<p>Now, we will instead specify the directory to render instead of the YAML file:</p>
+<pre><code class="language-shell">archetect render ./
+</code></pre>
+<p>Now, let's create a directory to store our templates in, and move our Java template into a file within:</p>
+<pre><code class="language-shell">mkdir contents
+touch &quot;contents/{{ ClassName }}.java&quot;
+</code></pre>
+<p>Copy and paste the Java class from our initial script into the new file, and format it appropriately:</p>
+<pre><code class="language-java">public class {{ ClassName }} {
+    private static {{ ClassName }} {{ className }} = new {{ ClassName }}();
+    
+    private {{ ClassName }}(){}
+    
+    public static {{ ClassName }} getInstance(){
+        return {{ className }};
+    }
+    
+    public void printMessage() {
+        System.out.println(&quot;This is a contrived example. You can try this at home... but don't try it at work!&quot;);
+    }
+    
+    public static void main(String[] args) {
+        {{ ClassName }}.getInstance().printMessage();
+    }
+}
+</code></pre>
+<p>With these changes, we can reformat our <code>archetype.yml</code> file to make use of our new templates directory:</p>
+<pre><code class="language-yaml">---
+script:
+
+  - set:
+      class:
+        prompt: &quot;What is the name of your class?&quot;
+
+      ClassName:
+        value: &quot;{{ class | pascal_case }}&quot;
+
+      className:
+        value: &quot;{{ class | camel_case }}&quot;
+
+  - render:
+      directory:
+        source: contents
+</code></pre>
 <h1><a class="header" href="#credits" id="credits">Credits</a></h1>
 <p>These are some of the key libraries that are core to Archetect's functionality':</p>
 <ul>
