@@ -87,3 +87,15 @@ script:
         source: contents
 ```
 
+Our directory is now becoming an archetype, and something we'll eventually check into revision control.  We 
+don't want to pollute our archetype with generated files. Therefore, we should start rendering into a different 
+directory.  As an example, if we had `~/projects/` and`~/archetypes/` directories, where the former is where we render 
+our projects and the latter is where we author our archetypes, we would now render as follows:
+
+```shell
+cd ~/projects/
+archetect render ~/archetypes/archetect-tutorial
+```
+
+We no longer need to pipe our output to a file, and whatever we supply as our class name will now be reflected in the
+file name, as well.  Easy!
