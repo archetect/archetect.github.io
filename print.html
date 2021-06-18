@@ -582,6 +582,15 @@ script:
       directory:
         source: contents
 </code></pre>
+<p>Our directory is now becoming an archetype, and something we'll eventually check into revision control.  We 
+don't want to pollute our archetype with generated files. Therefore, we should start rendering into a different 
+directory.  As an example, if we had <code>~/projects/</code> and<code>~/archetypes/</code> directories, where the former is where we render 
+our projects and the latter is where we author our archetypes, we would now render as follows:</p>
+<pre><code class="language-shell">cd ~/projects/
+archetect render ~/archetypes/archetect-tutorial
+</code></pre>
+<p>We no longer need to pipe our output to a file, and whatever we supply as our class name will now be reflected in the
+file name, as well.  Easy!</p>
 <h1><a class="header" href="#credits" id="credits">Credits</a></h1>
 <p>These are some of the key libraries that are core to Archetect's functionality':</p>
 <ul>
