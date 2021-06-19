@@ -99,3 +99,4 @@ archetect render ~/archetypes/archetect-tutorial
 
 We no longer need to pipe our output to a file, and whatever we supply as our class name will now be reflected in the
 file name, as well.  Easy!
+                                                
