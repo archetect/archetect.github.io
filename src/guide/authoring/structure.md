@@ -97,6 +97,6 @@ cd ~/projects/
 archetect render ~/archetypes/archetect-tutorial
 ```
 
-We no longer need to pipe our output to a file, and whatever we supply as our class name will now be reflected in the
-file name, as well.  Easy!
+We no longer need to pipe our output to a file, and whatever we supply as our class name will now be reflected within 
+both the file name and file contents using the same variable. Easy!
                                                 
