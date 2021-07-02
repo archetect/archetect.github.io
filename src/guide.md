@@ -19,11 +19,11 @@ You can visit each section by using git to list them out and then check out the 
     git checkout 01_basics
 ```
 
-## [Basics](guide/authoring/01.md)
+## [Basics](guide/01.md)
 
 Getting started by introducing a few basics.
 
-## [Structuring an Archetype](guide/authoring/02.md)
+## [Structuring an Archetype](guide/02.md)
 
 Beging laying out the structure of our archetype.
 
