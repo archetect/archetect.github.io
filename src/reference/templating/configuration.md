@@ -24,7 +24,7 @@ Hello, {{ first_name }}!
 
 Archetect will throw an error and abort any further execution of the archetype.
 
-To enable this behavior in `archetype.yaml`:
+This is the default behavior if this setting is not explicitly set, but may be set in `archetype.yaml`:
 ```yaml
 ---
 templating:
@@ -53,7 +53,7 @@ templating:
 ### Chainable
 The templating engine will silently insert an empty string, even if there are a chain of undefined values. Useful for complex, dynamic generation from models.
 
-For example, if an object with properties is optionally expected in the context, archetype will silently insert an empty
+For example, if an object with properties is optionally expected in the context, Archetect will silently insert an empty
 string if either `person` or `person.first_name` is undefined:
 
 ```jinja
