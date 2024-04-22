@@ -95,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="archetect.html">Archetect</a></li><li class="chapter-item affix "><a href="features.html">Features</a></li><li class="chapter-item "><a href="getting_started.html"><strong aria-hidden="true">1.</strong> Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="getting_started/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="getting_started/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item "><a href="getting_started/post.html"><strong aria-hidden="true">1.3.</strong> Post Configuration</a></li></ol></li><li class="chapter-item "><a href="guide.html"><strong aria-hidden="true">2.</strong> Guide</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="guide/01.html"><strong aria-hidden="true">2.1.</strong> Some Basics</a></li><li class="chapter-item "><a href="guide/02.html"><strong aria-hidden="true">2.2.</strong> Structuring an Archetype</a></li></ol></li><li class="chapter-item "><a href="configuration_reference.html"><strong aria-hidden="true">3.</strong> Configuration Reference</a></li><li class="chapter-item "><a href="templating_reference.html"><strong aria-hidden="true">4.</strong> Templating Reference</a></li><li class="chapter-item "><a href="recipes.html"><strong aria-hidden="true">5.</strong> Recipes</a></li><li class="chapter-item affix "><a href="credits.html">Credits</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="archetect.html">Archetect</a></li><li class="chapter-item affix "><a href="features.html">Features</a></li><li class="chapter-item affix "><li class="part-title">Guides</li><li class="chapter-item "><a href="guides/concepts/index.html"><strong aria-hidden="true">1.</strong> Core Concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="guides/concepts/archetypes.html"><strong aria-hidden="true">1.1.</strong> Archetypes</a></li></ol></li><li class="chapter-item "><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="getting_started/prerequisites.html"><strong aria-hidden="true">2.1.</strong> Prerequisites</a></li><li class="chapter-item "><a href="getting_started/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a></li><li class="chapter-item "><a href="getting_started/post.html"><strong aria-hidden="true">2.3.</strong> Post Configuration</a></li></ol></li><li class="chapter-item "><a href="guide.html"><strong aria-hidden="true">3.</strong> Guide</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="guide/01.html"><strong aria-hidden="true">3.1.</strong> Some Basics</a></li><li class="chapter-item "><a href="guide/02.html"><strong aria-hidden="true">3.2.</strong> Structuring an Archetype</a></li></ol></li><li class="chapter-item "><a href="recipes.html"><strong aria-hidden="true">4.</strong> Recipes</a></li><li class="chapter-item affix "><li class="part-title">Reference</li><li class="chapter-item "><a href="reference/concepts/index.html"><strong aria-hidden="true">5.</strong> Concepts</a></li><li class="chapter-item "><a href="reference/scripting/index.html"><strong aria-hidden="true">6.</strong> Scripting Engine</a></li><li class="chapter-item "><a href="reference/templating/index.html"><strong aria-hidden="true">7.</strong> Templating Engine</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="reference/templating/configuration.html"><strong aria-hidden="true">7.1.</strong> Configuration</a></li></ol></li><li class="chapter-item "><a href="reference/configuration/index.html"><strong aria-hidden="true">8.</strong> Configuration</a></li><li class="chapter-item affix "><a href="credits.html">Credits</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -255,6 +255,10 @@ listeners, etc.  Each of these catalogs could be referenced by the master catalo
 pull the latest version of catalogs as they are used, providing developers with the latest and greatest available
 archetypes from these various teams.  Someone has developed a fancy high-performance microservice in the Rust programming
 language?  Simply add it to a catalog and make it immediately available to the entire staff!</p>
+<h1><a class="header" href="#concepts" id="concepts">Concepts</a></h1>
+<h1><a class="header" href="#archetypes" id="archetypes">Archetypes</a></h1>
+<p>An archetype in Archetect is a self-contained directory containing everything needed to</p>
+<p>When rendering an archetype, Archetect </p>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
 <p>Getting started with Archetect is considerably easier than many content generators, but there are a few steps you'll want follow to ensure you're ready to go.</p>
 <p>First, you'll need to check off a prerequisite or two first, which are likely already satisfied if you write a lot code, as opposed to, say, generating it.</p>
@@ -591,6 +595,51 @@ archetect render ~/archetypes/archetect-tutorial
 </code></pre>
 <p>We no longer need to pipe our output to a file, and whatever we supply as our class name will now be reflected within 
 both the file name and file contents using the same variable. Easy!</p>
+<h1><a class="header" href="#concepts-1" id="concepts-1">Concepts</a></h1>
+<h1><a class="header" href="#scripting-engine" id="scripting-engine">Scripting Engine</a></h1>
+<h1><a class="header" href="#templating-engine" id="templating-engine">Templating Engine</a></h1>
+<h1><a class="header" href="#templating-configuration" id="templating-configuration">Templating Configuration</a></h1>
+<p>Some aspects of the templating engine can be configured through settings in an archetype's <code>archetype.yaml</code> manifest.</p>
+<h2><a class="header" href="#undefined-behavior" id="undefined-behavior">Undefined Behavior</a></h2>
+<p>Since: 2.0.0-ALPHA.17</p>
+<p><code>Undefined Behavior</code> can be tuned based on the needs of an archetype.  This configuration determines what happens if a 
+context value is &quot;undefined&quot; (null).</p>
+<p>Archetect's templating engine allows for the following three options:</p>
+<h3><a class="header" href="#strict-default" id="strict-default">Strict (default)</a></h3>
+<p>The templating engine will throw an error if an undefined value is encountered.  For most archetypes, this setting is 
+suitable, and helps an archetype author identify problems with their archetype quicker.</p>
+<p>For example, if a variable <code>first_name</code> has not been defined when rending Jinja content, such as:</p>
+<pre><code>Hello, {{ first_name }}!
+</code></pre>
+<p>Archetect will throw an error and abort any further execution of the archetype.</p>
+<p>This is the default behavior if this setting is not explicitly set, but may be set in <code>archetype.yaml</code>:</p>
+<pre><code class="language-yaml">---
+templating:
+  undefined_behavior: Strict
+</code></pre>
+<h3><a class="header" href="#lenient" id="lenient">Lenient</a></h3>
+<p>The templating engine will silently insert an empty string if a value is undefined. Useful when generating from more complex
+context models where you want to conditionally render content based on whether a variable is defined or not.</p>
+<p>For example, if <code>first_name</code> has been defined, but <code>greeting</code> is optional and possibly undefined:</p>
+<pre><code class="language-jinja">{% if greeting %}{{ greeting }}{% else %}Hello{% endif %}, {{ first_name}}!
+</code></pre>
+<p>Archetype will allow the conditional check on <code>greeting</code>, and silently insert an empty string for <code>first_name</code> if it has
+not been defined.</p>
+<p>To enable this behavior in <code>archetype.yaml</code>:</p>
+<pre><code class="language-yaml">templating:
+  undefined_behavior: Lenient
+</code></pre>
+<h3><a class="header" href="#chainable" id="chainable">Chainable</a></h3>
+<p>The templating engine will silently insert an empty string, even if there are a chain of undefined values. Useful for complex, dynamic generation from models.</p>
+<p>For example, if an object with properties is optionally expected in the context, Archetect will silently insert an empty
+string if either <code>person</code> or <code>person.first_name</code> is undefined:</p>
+<pre><code class="language-jinja">{{ person.first_name }}
+</code></pre>
+<p>To enable this behavior in <code>archetype.yaml</code>:</p>
+<pre><code class="language-yaml">templating:
+  undefined_behavior: Chainable
+</code></pre>
+<h1><a class="header" href="#configuration-1" id="configuration-1">Configuration</a></h1>
 <h1><a class="header" href="#credits" id="credits">Credits</a></h1>
 <p>These are some of the key libraries that are core to Archetect's functionality':</p>
 <ul>
