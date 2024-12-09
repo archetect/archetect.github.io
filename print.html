@@ -295,9 +295,9 @@ brew install archetect
 <h2><a class="header" href="#pre-compiled-binaries" id="pre-compiled-binaries">Pre-compiled binaries</a></h2>
 <p>Pre-compiled binaries are available on Archetect's <a href="https://github.com/archetect/archetect/releases/latest">Releases GitHub Page</a> for 64 bit flavors of OSX, Linux, and Windows.</p>
 <p>Installation is as simple as downloading the zip file that matches your platform, extracting the contents, and placing the <code>archetect</code> or <code>archetect.exe</code> binary within a location of your choosing.  Ideally, that location would be on your path.</p>
-<p>Note: On OSX, unsigned cli binaries, like Archetect, are not allowed to run by default. To allow Archetect to run on
-OSX, you'll need to browse to the binary with Finder, right or Control-click on it, and click &quot;Open&quot;.  Once you've done this, you
-should be able to execute Archetect at the command line for hence forth.</p>
+<p>Note: On MacOS, unsigned cli binaries like Archetect are not allowed to run by default. To allow Archetect to run on MacOS, you'll need to browse to the binary with Finder, right or Control-click on it, and click &quot;Open&quot;.  Alternatively, you can remove the <code>com.apple.quarantine</code> flag using <code>xattr</code>:</p>
+<pre><code class="language-shell">xattr -d com.apple.quarantine &lt;path to archetect&gt;
+</code></pre>
 <h2><a class="header" href="#for-rust-developers" id="for-rust-developers">For Rust Developers</a></h2>
 <p>If you're an existing or aspiring Rust developer with a recent version of the <a href="https://rustup.rs/">Rust toolchain</a> installed, you can install Archetect from source:</p>
 <pre><code class="language-shell">cd ~/projects/rust
