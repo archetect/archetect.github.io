@@ -257,9 +257,9 @@ archetypes from these various teams.  Someone has developed a fancy high-perform
 language?  Simply add it to a catalog and make it immediately available to the entire staff!</p>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
 <p>Getting started with Archetect is considerably easier than many content generators, but there are a few steps you'll want follow to ensure you're ready to go.</p>
-<p>First, you'll need to check off a prerequisite or two first, which are likely already satisfied if you write a lot code, as opposed to, say, generating it.</p>
-<p>Naturally, you'll want to install the binary.</p>
-<p>And last, you'll want to apply some optional configuration (using Archetect itself!) to provide a more fluid experience, and verify everything is working.</p>
+<p>First, you'll need to check off a <a href="getting_started/prerequisites.html">prerequisite or two</a> first, which are likely already satisfied if you are a developer.</p>
+<p>Naturally, you'll want to <a href="getting_started/installation.html">install</a> the binary.</p>
+<p>And last, you'll want to perform a <a href="getting_started/post.html">post setup</a> to ensure everything is working correctly.</p>
 <h1><a class="header" href="#prerequisites" id="prerequisites">Prerequisites</a></h1>
 <h2><a class="header" href="#git" id="git">Git</a></h2>
 <p>Archetect is a single native binary designed for use on the command line.  Technically, placing this on your shell's path is all you would need to get going.  You could limit yourself to generating projects from archetypes authored or downloaded on your local machine.  But that's no fun.</p>
@@ -315,6 +315,7 @@ cargo install --path ./archetect-bin --force
 <p>Next, perform a check to ensure basic requirements are met for your Operating System:</p>
 <pre><code class="language-shell">archetect check
 </code></pre>
+<p>Finally, if you run <code>archetect</code> with no arguments, you should be presented with a default catalog menu. Browse the catalog and generate your first project.  If everything is set up correctly, you should have a project generated without being prompted for a Git password.</p>
 <h1><a class="header" href="#concepts" id="concepts">Concepts</a></h1>
 <h1><a class="header" href="#archetypes" id="archetypes">Archetypes</a></h1>
 <p>An archetype in Archetect is a self-contained directory containing everything needed to</p>
