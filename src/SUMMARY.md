@@ -1,13 +1,14 @@
 [Archetect](./archetect.md)
 [Features](features.md)
 
+- [Getting Started](getting_started/index.md)
+  - [Prerequisites](getting_started/prerequisites.md)
+  - [Installation](getting_started/installation.md)
+  - [Post Setup](getting_started/post.md)
+  
 # Guides
 - [Core Concepts](guides/concepts/index.md)
   - [Archetypes](guides/concepts/archetypes.md)
-- [Getting Started](getting_started.md)
-    - [Prerequisites](getting_started/prerequisites.md)
-    - [Installation](getting_started/installation.md)
-    - [Post Configuration](getting_started/post.md)
 - [Guide](guide.md)
     - [Some Basics](guide/01.md)
     - [Structuring an Archetype](guide/02.md)
