@@ -93,7 +93,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="../archetect.html">Archetect</a></li><li class="chapter-item affix "><a href="../features.html">Features</a></li><li class="chapter-item affix "><li class="part-title">Guides</li><li class="chapter-item "><a href="../guides/concepts/index.html"><strong aria-hidden="true">1.</strong> Core Concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../guides/concepts/archetypes.html"><strong aria-hidden="true">1.1.</strong> Archetypes</a></li></ol></li><li class="chapter-item expanded "><a href="../getting_started.html"><strong aria-hidden="true">2.</strong> Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../getting_started/prerequisites.html"><strong aria-hidden="true">2.1.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="../getting_started/installation.html" class="active"><strong aria-hidden="true">2.2.</strong> Installation</a></li><li class="chapter-item "><a href="../getting_started/post.html"><strong aria-hidden="true">2.3.</strong> Post Configuration</a></li></ol></li><li class="chapter-item "><a href="../guide.html"><strong aria-hidden="true">3.</strong> Guide</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../guide/01.html"><strong aria-hidden="true">3.1.</strong> Some Basics</a></li><li class="chapter-item "><a href="../guide/02.html"><strong aria-hidden="true">3.2.</strong> Structuring an Archetype</a></li></ol></li><li class="chapter-item "><a href="../recipes.html"><strong aria-hidden="true">4.</strong> Recipes</a></li><li class="chapter-item affix "><li class="part-title">Reference</li><li class="chapter-item "><a href="../reference/concepts/index.html"><strong aria-hidden="true">5.</strong> Concepts</a></li><li class="chapter-item "><a href="../reference/scripting/index.html"><strong aria-hidden="true">6.</strong> Scripting Engine</a></li><li class="chapter-item "><a href="../reference/templating/index.html"><strong aria-hidden="true">7.</strong> Templating Engine</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../reference/templating/configuration.html"><strong aria-hidden="true">7.1.</strong> Configuration</a></li></ol></li><li class="chapter-item "><a href="../reference/configuration/index.html"><strong aria-hidden="true">8.</strong> Configuration</a></li><li class="chapter-item affix "><a href="../credits.html">Credits</a></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="../archetect.html">Archetect</a></li><li class="chapter-item affix "><a href="../features.html">Features</a></li><li class="chapter-item expanded "><a href="../getting_started/index.html"><strong aria-hidden="true">1.</strong> Getting Started</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../getting_started/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Prerequisites</a></li><li class="chapter-item expanded "><a href="../getting_started/installation.html" class="active"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item "><a href="../getting_started/post.html"><strong aria-hidden="true">1.3.</strong> Post Setup</a></li></ol></li><li class="chapter-item "><li class="part-title">Guides</li><li class="chapter-item "><a href="../guides/concepts/index.html"><strong aria-hidden="true">2.</strong> Core Concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../guides/concepts/archetypes.html"><strong aria-hidden="true">2.1.</strong> Archetypes</a></li></ol></li><li class="chapter-item "><a href="../guide.html"><strong aria-hidden="true">3.</strong> Guide</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../guide/01.html"><strong aria-hidden="true">3.1.</strong> Some Basics</a></li><li class="chapter-item "><a href="../guide/02.html"><strong aria-hidden="true">3.2.</strong> Structuring an Archetype</a></li></ol></li><li class="chapter-item "><a href="../recipes.html"><strong aria-hidden="true">4.</strong> Recipes</a></li><li class="chapter-item affix "><li class="part-title">Reference</li><li class="chapter-item "><a href="../reference/concepts/index.html"><strong aria-hidden="true">5.</strong> Concepts</a></li><li class="chapter-item "><a href="../reference/scripting/index.html"><strong aria-hidden="true">6.</strong> Scripting Engine</a></li><li class="chapter-item "><a href="../reference/templating/index.html"><strong aria-hidden="true">7.</strong> Templating Engine</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../reference/templating/configuration.html"><strong aria-hidden="true">7.1.</strong> Configuration</a></li></ol></li><li class="chapter-item "><a href="../reference/configuration/index.html"><strong aria-hidden="true">8.</strong> Configuration</a></li><li class="chapter-item affix "><a href="../credits.html">Credits</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -164,28 +164,34 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#installation" id="installation">Installation</a></h1>
+<h2><a class="header" href="#homebrew" id="homebrew">Homebrew</a></h2>
+<p>On MacOS (arm64) and on Linux (x64), Archetect can be installed with Homebrew:</p>
+<pre><code class="language-shell">brew tap archetect/archetect
+brew install archetect
+</code></pre>
+<h2><a class="header" href="#windows-installer" id="windows-installer">Windows Installer</a></h2>
+<p>There is a Windows Installer on Archetect's <a href="https://github.com/archetect/archetect/releases/latest">Releases GitHub Page</a> that:</p>
+<ul>
+<li>Enables Windows Long Path Names</li>
+<li>Enables Git Long Path Names</li>
+<li>Installs Archetect</li>
+<li>Add Archetect to the PATH</li>
+</ul>
 <h2><a class="header" href="#pre-compiled-binaries" id="pre-compiled-binaries">Pre-compiled binaries</a></h2>
-<p>Pre-compiled binaries are available on Archetect's <a href="https://github.com/archetect/archetect/releases/latest">Releases GitHub Page</a> for 64 bit flavors of OSX, Linux, and Windows.  The Linux binary is compiled against <a href="https://musl.libc.org/">musl libc</a> for compatibility on multiple Linux distribution flavors.</p>
+<p>Pre-compiled binaries are available on Archetect's <a href="https://github.com/archetect/archetect/releases/latest">Releases GitHub Page</a> for 64 bit flavors of OSX, Linux, and Windows.</p>
 <p>Installation is as simple as downloading the zip file that matches your platform, extracting the contents, and placing the <code>archetect</code> or <code>archetect.exe</code> binary within a location of your choosing.  Ideally, that location would be on your path.</p>
 <p>Note: On OSX, unsigned cli binaries, like Archetect, are not allowed to run by default. To allow Archetect to run on
 OSX, you'll need to browse to the binary with Finder, right or Control-click on it, and click &quot;Open&quot;.  Once you've done this, you
 should be able to execute Archetect at the command line for hence forth.</p>
 <h2><a class="header" href="#for-rust-developers" id="for-rust-developers">For Rust Developers</a></h2>
-<p>If you're an existing or aspiring Rust developer with a recent version of the <a href="https://rustup.rs/">Rust toolchain</a> installed, 
-you can install Archetect in a few ways.</p>
-<p>Via cargo (for the most recent stable version):</p>
-<pre><code class="language-shell">cargo install archetect --force
-</code></pre>
-<p>From source (for the bleeding edge):</p>
-<pre><code class="language-shellscript">cd ~/projects/rust
+<p>If you're an existing or aspiring Rust developer with a recent version of the <a href="https://rustup.rs/">Rust toolchain</a> installed, you can install Archetect from source:</p>
+<pre><code class="language-shell">cd ~/projects/rust
 git clone git@github.com:archetect/archetect.git
 cd archetect
-cargo install --path ./archetect-cli --force 
+cargo install --path ./archetect-bin --force 
 </code></pre>
 <h2><a class="header" href="#verifying-install" id="verifying-install">Verifying Install</a></h2>
-<p>If Archetect is on your shell's path, you can verify that you've got a working binary by executing the following from your shell:</p>
-<pre><code class="language-shellscript">archetect --version
-</code></pre>
+<p>Be sure to verify your installation with <a href="post.html">Post Setup</a>.</p>
 
                     </main>
 
