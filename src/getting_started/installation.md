@@ -11,7 +11,8 @@ brew install archetect
 
 ## Windows Installer
 
-There is a Windows Installer on Archetect's [Releases GitHub Page](https://github.com/archetect/archetect/releases/latest) that:
+There is a Windows Installer on Archetect's [Releases GitHub Page](https://github.com/archetect/archetect/releases/latest) (`archetect-vX.X.X-windows_x64-installer.exe
+`) that:
 - Enables Windows Long Path Names
 - Enables Git Long Path Names
 - Installs Archetect
