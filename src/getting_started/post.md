@@ -14,6 +14,7 @@ Next, perform a check to ensure basic requirements are met for your Operating Sy
 archetect check
 ```
 
+Finally, if you run `archetect` with no arguments, you should be presented with a default catalog menu. Browse the catalog and generate your first project.  If everything is set up correctly, you should have a project generated without being prompted for a Git password.
 
 
 
