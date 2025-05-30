@@ -1,0 +1,24 @@
+archetypes:
+  label: Archetypes
+  permalink: /archetypes
+  description: Template-based code generation and project scaffolding
+
+code-generation:
+  label: Code Generation
+  permalink: /code-generation
+  description: Automated code creation and boilerplate generation
+
+rapid-prototyping:
+  label: Rapid Prototyping
+  permalink: /rapid-prototyping
+  description: Fast project setup and development acceleration
+
+agentic-coding:
+  label: Agentic Coding
+  permalink: /agentic-coding
+  description: AI-assisted development and intelligent code generation
+
+architecture:
+  label: Architecture
+  permalink: /architecture
+  description: Software architecture patterns and design principles
