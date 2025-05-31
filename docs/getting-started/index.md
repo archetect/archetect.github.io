@@ -34,8 +34,8 @@ Before you begin, you should have:
 
 If you run into issues during setup or have questions about getting started:
 
-1. Check our [Troubleshooting Guide](./troubleshooting)
-2. Review the [FAQ](./faq)
-3. Visit our [GitHub repository](https://github.com/archetect/archetect) for community support
+1. Visit our [GitHub repository](https://github.com/archetect/archetect) for community support
+2. Check the documentation for detailed guidance
+3. Consult the [CLI Reference](../user-guide/cli-reference) for command details
 
 Let's get started with [installing Archetect](./installation)!

@@ -11,10 +11,6 @@ This section covers everything you need to know about using Archetect effectivel
 - **[CLI Reference](./cli-reference)**: Complete command-line interface documentation
 - **[Working with Archetypes](./archetypes)**: Finding, using, and managing archetypes
 - **[Catalogs](./catalogs)**: Browse and use archetype collections
-- **[Configuration](./configuration)**: Customize Archetect for your workflow
-- **[Answer Files](./answer-files)**: Automate project generation
-- **[Cache Management](./cache)**: Manage downloaded resources
-- **[Advanced Usage](./advanced)**: Power user features and techniques
 
 ## Quick Reference
 
@@ -37,8 +33,6 @@ archetect cache clear
 ### Common Workflows
 - **[Quick Generation](./archetypes#quick-generation)**: Generate projects quickly
 - **[Interactive Browsing](./catalogs#interactive-browsing)**: Explore available archetypes
-- **[Automated Generation](./answer-files#cicd-integration)**: Use in CI/CD pipelines
-- **[Local Development](./advanced#local-development)**: Work with local archetypes
 
 ## Getting Help
 
