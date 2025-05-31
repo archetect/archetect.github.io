@@ -39,11 +39,20 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    title: 'Advanced Casing & Inflections',
+    icon: '🔤',
+    description: (
+      <>
+        Built-in case conversions and inflections for clean, consistent naming.
+      </>
+    ),
+  },
+  {
     title: 'Flexible Workflows',
     icon: '🔄',
     description: (
       <>
-        Rich terminal UI for interactive workflows or seamless headless automation with validation.
+        Rich terminal UI for interactive workflows or run headless in CI and tooling.
       </>
     ),
   },
@@ -52,16 +61,7 @@ const FeatureList: FeatureItem[] = [
     icon: '📦',
     description: (
       <>
-        Organized collections of templates for consistent project bootstrapping.
-      </>
-    ),
-  },
-  {
-    title: 'Advanced Casing & Inflections',
-    icon: '🔤',
-    description: (
-      <>
-        Built-in case conversions and inflections for clean, consistent naming.
+        Organized collections of templates for open-source communities and enterprises, alike.
       </>
     ),
   },
