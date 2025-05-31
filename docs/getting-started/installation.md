@@ -4,74 +4,78 @@ sidebar_position: 2
 
 # Installation
 
-This guide will help you install Archetect on your system using various methods.
+Archetect can be installed using several methods depending on your operating system and preferences.
 
-## System Requirements
+## Binary Downloads
 
-- **Operating System**: Linux, macOS, or Windows
-- **Architecture**: x86_64 or ARM64
-- **Disk Space**: ~50MB for the binary and dependencies
-- **Git**: Required for working with remote archetypes
+The easiest way to install Archetect is by downloading pre-built binaries from the GitHub releases page.
 
-## Installation Methods
+### Requirements
+- [Git](https://git-scm.com/) for accessing archetypes
+- Git credentials configured if accessing private archetypes
+- Works on Windows, macOS, and Linux
 
-### Pre-built Binaries (Recommended)
+### Installation Steps
+1. Visit [https://github.com/archetect/archetect/releases/latest](https://github.com/archetect/archetect/releases/latest)
+2. Download the appropriate binary for your operating system:
+   - **Windows**: `archetect-x86_64-pc-windows-msvc.exe`
+   - **macOS**: `archetect-x86_64-apple-darwin` or `archetect-aarch64-apple-darwin` (for Apple Silicon)
+   - **Linux**: `archetect-x86_64-unknown-linux-gnu` or `archetect-x86_64-unknown-linux-musl`
+3. Extract the binary and place it in your system's PATH
+4. Verify installation by running `archetect --version`
 
-Download the latest release from [GitHub Releases](https://github.com/archetect/archetect/releases):
+## Homebrew (macOS and Linux)
 
-#### Linux
+For macOS and Linux users, Archetect can be installed via Homebrew using the official tap.
+
+### Requirements
+- [Homebrew](https://brew.sh/) package manager installed
+- [Git](https://git-scm.com/) for accessing archetypes
+- Git credentials configured if accessing private archetypes
+- macOS or Linux operating system
+
+### Installation Steps
 ```bash
-# Download and install to /usr/local/bin
-curl -L https://github.com/archetect/archetect/releases/latest/download/archetect-linux-x86_64.tar.gz | sudo tar xz -C /usr/local/bin
-```
+# Add the Archetect tap
+brew tap archetect/tap
 
-#### macOS
-```bash
-# Download and install to /usr/local/bin
-curl -L https://github.com/archetect/archetect/releases/latest/download/archetect-macos-x86_64.tar.gz | sudo tar xz -C /usr/local/bin
-
-# For Apple Silicon Macs
-curl -L https://github.com/archetect/archetect/releases/latest/download/archetect-macos-arm64.tar.gz | sudo tar xz -C /usr/local/bin
-```
-
-#### Windows
-1. Download `archetect-windows-x86_64.zip` from the releases page
-2. Extract to a directory in your PATH (e.g., `C:\Program Files\Archetect\`)
-3. Add the directory to your system PATH
-
-### Package Managers
-
-#### Homebrew (macOS/Linux)
-```bash
+# Install Archetect
 brew install archetect
 ```
 
-#### Cargo (Rust)
+### Updating
 ```bash
-cargo install archetect
+brew update
+brew upgrade archetect
 ```
 
-#### Arch Linux (AUR)
-```bash
-yay -S archetect
-```
+## Building from Source
 
-### Building from Source
+For developers or users who want the latest features, Archetect can be built from source.
 
-If you have Rust installed, you can build from source:
+### Requirements
+- [Rust](https://rustup.rs/) toolchain (latest stable version)
+- [Git](https://git-scm.com/) for cloning the repository
+- C compiler (for some dependencies)
+  - **Windows**: Visual Studio Build Tools or MSVC
+  - **macOS**: Xcode Command Line Tools (`xcode-select --install`)
+  - **Linux**: GCC or Clang (`build-essential` package on Debian/Ubuntu)
 
+### Installation Steps
 ```bash
 # Clone the repository
 git clone https://github.com/archetect/archetect.git
 cd archetect
 
-# Build and install
-cargo install --path .
+# Build and install using the custom task runner
+cargo xtask install
 ```
+
+This will build Archetect in release mode and install it to your Cargo bin directory (typically `~/.cargo/bin`).
 
 ## Verification
 
-Verify your installation by running:
+After installation, verify that Archetect is properly installed:
 
 ```bash
 archetect --version
@@ -79,64 +83,24 @@ archetect --version
 
 You should see output similar to:
 ```
-archetect 2.0.0
+archetect x.x.x
 ```
-
-## Shell Completions
-
-Archetect can generate shell completions for better command-line experience:
-
-### Bash
-```bash
-archetect completions bash > ~/.local/share/bash-completion/completions/archetect
-```
-
-### Zsh
-```bash
-archetect completions zsh > ~/.zfunc/_archetect
-# Add ~/.zfunc to your $fpath in ~/.zshrc
-```
-
-### Fish
-```bash
-archetect completions fish > ~/.config/fish/completions/archetect.fish
-```
-
-### PowerShell
-```powershell
-archetect completions powershell > $PROFILE
-```
-
-## Configuration
-
-Archetect will create a configuration directory at:
-- **Linux/macOS**: `~/.archetect/`
-- **Windows**: `%APPDATA%\archetect\`
-
-This directory contains:
-- `config.yaml` - User configuration and preferences
-- `cache/` - Cached Git repositories and resources
-
-## Next Steps
-
-Now that Archetect is installed, let's explore [basic concepts](./concepts) to understand how it works, or jump straight to the [quick start tutorial](./quick-start) to generate your first project.
 
 ## Troubleshooting
 
-### Permission Denied
-If you get permission errors during installation:
-- Ensure you have write access to the installation directory
-- Use `sudo` for system-wide installation on Unix systems
-- On macOS, you may need to allow the binary in System Preferences > Security & Privacy
+### PATH Issues
+If you get a "command not found" error after installation:
 
-### Command Not Found
-If `archetect` command is not found:
-- Verify the binary is in your PATH
-- Restart your terminal session
-- Check the installation directory matches your system's PATH
+- **Binary installation**: Ensure the binary is in a directory listed in your PATH environment variable
+- **Homebrew**: Usually handles PATH automatically, but you may need to restart your terminal
+- **Cargo installation**: Ensure `~/.cargo/bin` is in your PATH
 
-### macOS Quarantine
-On macOS, you may need to remove the quarantine attribute:
-```bash
-sudo xattr -r -d com.apple.quarantine /usr/local/bin/archetect
-```
+### Permission Issues
+If you encounter permission errors:
+
+- **macOS**: You may need to allow the binary in System Preferences > Security & Privacy
+- **Linux**: Ensure the binary has execute permissions (`chmod +x archetect`)
+
+## Next Steps
+
+Once installed, continue to the [Quick Start](./quick-start) guide to learn how to use Archetect.
