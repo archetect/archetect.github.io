@@ -219,8 +219,8 @@ Congratulations! You've successfully generated your first project with Archetect
 
 ### Start Creating Your Own
 - [Authoring Guide](../authoring/) - Create custom archetypes
-- [Templating Engine](../authoring/templating-engine) - Learn the templating language
-- [Scripting Engine](../authoring/scripting-engine) - Add interactive logic with Rhai
+- [Templating](../authoring/templating) - Learn the templating language
+- [Scripting](../authoring/scripting) - Add interactive logic with Rhai
 
 ### Join the Community
 - [GitHub Repository](https://github.com/archetect/archetect) - Source code and issues

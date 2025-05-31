@@ -311,4 +311,4 @@ if switch_enabled("rust-project") {
 
 - **[Single Value Prompts](../single-value)** - Using casing with scalar values
 - **[Cased Map Prompts](../cased-map)** - Using casing with map generation
-- **[Templating Fundamentals](../../templating/fundamentals)** - Using cased variables in templates
+- **[Templating Fundamentals](../../../../authoring/templating/fundamentals)** - Using cased variables in templates
