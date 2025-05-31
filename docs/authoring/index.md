@@ -10,9 +10,8 @@ This comprehensive guide covers everything you need to know about creating your 
 
 In this section, you'll master:
 
-- **[Templating Engine](./templating-engine)**: Creating dynamic templates with Jinja2-compatible syntax
-- **[Scripting Engine](./scripting-engine)**: Complete guide to Rhai scripting with prompting, casing, and language fundamentals  
-- **[Scripting Engine](./scripting-engine)**: Complete guide to Rhai scripting with prompting, casing, and language fundamentals
+- **[Templating](./templating)**: Creating dynamic templates with Jinja2-compatible syntax
+- **[Scripting](./scripting)**: Complete guide to Rhai scripting with prompting, casing, and language fundamentals
 
 ## Quick Start for Authors
 
@@ -153,13 +152,12 @@ Combination of static and dynamic elements:
 ## Getting Help
 
 ### Resources
-- **[Templating Engine Reference](./templating-engine)** - Complete templating guide
-- **[Scripting Engine Guide](./scripting-engine)** - Comprehensive Rhai scripting reference
-- **[Scripting Engine Guide](./scripting-engine)** - Comprehensive Rhai scripting reference
+- **[Templating Reference](./templating)** - Complete templating guide
+- **[Scripting Guide](./scripting)** - Comprehensive Rhai scripting reference
 
 ### Community
 - **GitHub Discussions** - Ask questions and share examples
 - **Example Repositories** - Browse community archetypes
 - **Contribution Guidelines** - Help improve Archetect
 
-Ready to start building? Begin with the [Templating Engine Guide](./templating-engine) for static generation, or jump to the [Scripting Engine Guide](./scripting-engine) for interactive archetypes.
+Ready to start building? Begin with the [Templating Guide](./templating) for static generation, or jump to the [Scripting Guide](./scripting) for interactive archetypes.

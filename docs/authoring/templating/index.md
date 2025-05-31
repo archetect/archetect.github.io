@@ -1,15 +1,15 @@
 ---
 sidebar_position: 2
-sidebar_label: Templating Engine
+sidebar_label: Templating
 ---
 
-# Template Engine
+# Templating
 
-The Template Engine is the core system that processes and transforms your template files during archetype generation. It provides powerful templating capabilities using Jinja2-compatible syntax, enabling you to create dynamic, flexible, and maintainable templates for your archetypes.
+The templating system is the core system that processes and transforms your template files during archetype generation. It provides powerful templating capabilities using Jinja2-compatible syntax, enabling you to create dynamic, flexible, and maintainable templates for your archetypes.
 
 ## Overview
 
-The Template Engine processes all files in your archetype's template directories, replacing variables, executing template logic, and generating the final project structure. It supports everything from simple variable substitution to complex conditional logic and template inheritance.
+The templating system processes all files in your archetype's template directories, replacing variables, executing template logic, and generating the final project structure. It supports everything from simple variable substitution to complex conditional logic and template inheritance.
 
 ## Key Features
 
@@ -20,7 +20,7 @@ The Template Engine processes all files in your archetype's template directories
 - **Advanced Filters**: Built-in case conversion and formatting filters
 - **Performance Optimized**: Efficient template compilation and rendering
 
-## Template Engine Components
+## Templating Components
 
 ### [Fundamentals](fundamentals/)
 
@@ -44,14 +44,14 @@ Optimize your templates for better performance with compilation strategies, effi
 
 ## Getting Started
 
-If you're new to the Template Engine, start with the [Fundamentals](fundamentals/) section to learn the core concepts and syntax. For experienced users looking to improve their template organization, jump to [Organization](organization/) or explore [Advanced Techniques](advanced-techniques/) for powerful templating patterns.
+If you're new to templating, start with the [Fundamentals](fundamentals/) section to learn the core concepts and syntax. For experienced users looking to improve their template organization, jump to [Organization](organization/) or explore [Advanced Techniques](advanced-techniques/) for powerful templating patterns.
 
 ## Template Processing Flow
 
-1. **Discovery**: Template Engine scans template directories
+1. **Discovery**: Templating system scans template directories
 2. **Variable Resolution**: Resolves variables from user inputs and scripts
 3. **Template Compilation**: Compiles templates for efficient processing
 4. **Rendering**: Processes templates and generates output files
 5. **Post-Processing**: Applies any final transformations or validations
 
-The Template Engine works seamlessly with the [Scripting Engine](../scripting-engine/) to provide a complete archetype development experience.
+The templating system works seamlessly with the [Scripting](../scripting/) to provide a complete archetype development experience.

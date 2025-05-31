@@ -1,14 +1,15 @@
 ---
 sidebar_position: 6
+sidebar_label: Scripting
 ---
 
-# Scripting Engine
+# Scripting
 
-Archetect's scripting engine is powered by [Rhai](https://rhai.rs/book/), providing dynamic and interactive archetype generation capabilities. The scripting engine allows you to create sophisticated logic for user interaction, data validation, and template control.
+Archetect's scripting system is powered by [Rhai](https://rhai.rs/book/), providing dynamic and interactive archetype generation capabilities. The scripting system allows you to create sophisticated logic for user interaction, data validation, and template control.
 
 ## Overview
 
-The Rhai scripting engine in Archetect enables:
+The Rhai scripting system in Archetect enables:
 
 - **Complex prompting logic** with conditional questions
 - **Data validation and transformation** 
@@ -72,4 +73,4 @@ Use Rhai scripts in your archetypes when you need:
 6. **Learn [Logging and Debugging](./logging-debugging/)** for proper output and debugging techniques
 7. **Build complex scenarios** by combining these concepts
 
-The scripting engine transforms static templates into dynamic, interactive generators that can adapt to your users' specific needs.
+The scripting system transforms static templates into dynamic, interactive generators that can adapt to your users' specific needs.
