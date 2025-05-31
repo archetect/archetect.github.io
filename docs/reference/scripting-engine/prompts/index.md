@@ -61,7 +61,9 @@ context.projectName = prompt("Project Name:", #{
 });
 
 // Cased Map - automatic multiple case variants
-context += prompt("Project Name:", "project_name");
+context += prompt("Project Name:", "project_name", #{
+    cased_as: CasedIdentityCasedValue(PROGRAMMING_CASES),
+});
 // Generates: project_name, projectName, ProjectName, PROJECT_NAME, etc.
 ```
 
