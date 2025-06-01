@@ -222,11 +222,11 @@ page_size: 10  // Show 10 options at a time (default)
 **Type:** `CaseStrategy` or `Array<CaseStrategy>`  
 **Description:** Case transformation strategies to apply
 
-**Single Value Prompts:** Transforms the returned value
+**Single Value Prompts:** Transforms the returned value (only individual CaseStyle values supported)
 
 ```rhai
-cased_as: CamelCase  // Single transformation
-cased_as: [CamelCase, PascalCase, SnakeCase]  // Multiple transformations
+cased_as: CamelCase    // Single case transformation
+cased_as: PascalCase   // Another single case transformation
 ```
 
 **Cased Map Prompts:** Generates multiple key-value pairs

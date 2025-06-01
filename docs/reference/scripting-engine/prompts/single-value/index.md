@@ -87,20 +87,26 @@ Single value prompts support the `cased_as` setting to transform the returned va
 
 ```rhai
 // Apply case transformation to the returned value
-context.service_name_kebab = prompt("Service Name:", #{
-    cased_as: KebabCase,
+context["service-name"] = prompt("Service Name:", #{
+    cased_as: KebabCase,  // Use bracket notation for kebab-case
 });
 
-// Use PROGRAMMING_CASES for multiple variants
-context.service_variants = prompt("Service Name:", #{
-    cased_as: CasedIdentityCasedValue(PROGRAMMING_CASES),
+// Transform to snake_case
+context.service_name = prompt("Service Name:", #{
+    cased_as: SnakeCase,
 });
 
-// Multiple specific cases
-context.class_names = prompt("Class Name:", #{
-    cased_as: [PascalCase, CamelCase, SnakeCase],
+// Transform to PascalCase
+context.ClassName = prompt("Class Name:", #{
+    cased_as: PascalCase,
 });
 ```
+
+:::tip Bracket Notation for Variable Names
+
+For `KebabCase` transformations, you must use bracket notation (`context["kebab-case"]`) since hyphens are not valid in JavaScript property names. Bracket notation can also be used for any case format if you prefer consistent syntax across all your variable assignments.
+
+:::
 
 See **[Casing Strategies](../casing-strategies)** for complete documentation of available case formats, the PROGRAMMING_CASES constant, and advanced casing patterns.
 

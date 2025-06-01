@@ -106,14 +106,14 @@ context.serviceName = prompt("Service Name:", #{
     cased_as: CamelCase,
 });
 
-// Multiple transformations (returns array)
-context.serviceVariants = prompt("Service Name:", #{
-    cased_as: [CamelCase, PascalCase, SnakeCase],
+// Only individual case styles are supported in single value prompts
+context.serviceSnake = prompt("Service Name:", #{
+    cased_as: SnakeCase,
 });
 
-// Programming cases
-context.serviceNames = prompt("Service Name:", #{
-    cased_as: CasedIdentityCasedValue(PROGRAMMING_CASES),
+// For multiple case variants, use cased map prompts instead
+context.servicePascal = prompt("Service Name:", #{
+    cased_as: PascalCase,
 });
 ```
 
