@@ -570,7 +570,7 @@ Archetype("validated-setup").render(context);
 ## Integration with Manifest Components
 
 :::note Cross-Reference
-Archetype components must be properly registered in the manifest. For detailed information about component configuration, see [Manifest Components](../../../../user-guide/archetypes#components).
+Archetype components must be properly registered in the manifest. For detailed information about archetype configuration, see [Working with Archetypes](../../../../user-guide/archetypes).
 :::
 
 ### Component Manifest Structure
@@ -774,6 +774,6 @@ Archetype composition provides unprecedented flexibility in code generation, ena
 
 ## Next Steps
 
-- Learn about [Component Manifest Configuration](../../../../user-guide/archetypes#components) for advanced component setup
+- Learn about [Working with Archetypes](../../../../user-guide/archetypes) for archetype usage and configuration
 - Explore [String Rendering](../string) for dynamic content generation within components
 - Check [Directory Rendering](../directories) for file-based template processing
