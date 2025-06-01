@@ -10,6 +10,10 @@ Casing strategies define how Archetect transforms user input into different case
 For comprehensive casing strategy documentation including usage with `set` functions and advanced patterns, see [Casing Strategies](../../casing-strategies/).
 :::
 
+:::tip Alternative Setting Names
+The casing setting supports multiple names that work identically: `cased_as`, `cased_with`, `casing`, or `cases`. All prompt functions accept any of these names.
+:::
+
 ## Overview
 
 Archetect provides powerful casing capabilities through the `cased_as` setting in prompt functions. The behavior differs between prompt families:

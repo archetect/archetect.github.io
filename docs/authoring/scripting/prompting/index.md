@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Prompting
+# Prompts
 
 The `prompt` function is the core of interactive archetype generation, enabling you to gather user input in various formats with validation and smart defaults.
 
@@ -379,8 +379,59 @@ context += prompt("Service name:", "service", #{
 // Creates: entity_pascal_case, entity_snake_case, entity_kebab_case
 ```
 
+## Prompting vs Set
+
+### When to Use Prompting
+
+- **User interaction**: When you need user input or decisions
+- **Configuration choices**: When users select from available options
+- **Optional settings**: When users can provide custom values or use defaults
+- **Validation required**: When you need to validate and constrain user input
+
+```rhai
+// Good use cases for prompting
+let service_name = prompt("Service name:");
+let database_type = prompt("Database:", #{
+    type: Select(["postgresql", "mysql", "sqlite"])
+});
+let enable_auth = prompt("Enable authentication?", #{
+    type: Bool,
+    defaults_with: true
+});
+```
+
+### When to Use Set
+
+- **Programmatic assignment**: When values are determined by logic, not user input
+- **Derived values**: When calculating values from other context variables
+- **Case transformations**: When you need multiple case variants of the same value
+- **Batch operations**: When setting multiple related variables efficiently
+
+```rhai
+// Good use cases for set (see Set documentation for details)
+context += set("api_version", "v" + context.version);
+context += set("service_class", context.service_name, #{
+    cased_as: FixedIdentityCasedValue(PascalCase)
+});
+```
+
+### Combining Prompting and Set
+
+```rhai
+// Get user input with prompt
+let entity_name = prompt("Entity name:");
+
+// Use set to create template variables
+context += set("entity", entity_name, #{
+    cased_as: CasedIdentityCasedValue([PascalCase, SnakeCase, KebabCase])
+});
+```
+
+For detailed information about programmatic variable assignment, see **[Set](../../../reference/scripting-engine/set/)**.
+
 ## Next Steps
 
+- Learn about [Set](../../../reference/scripting-engine/set/) for programmatic variable assignment with case transformations
 - Learn about [Case Styles](../../../reference/scripting-engine/case-styles/) for available transformation options
 - Explore [Case Strategies](../../../reference/scripting-engine/casing-strategies/) for applying multiple transformations
 - Check [Casing](../casing/) for comprehensive examples and patterns

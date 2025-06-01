@@ -1,4 +1,4 @@
-# Prompts
+# Prompt
 
 Archetect provides two distinct families of prompt functions, each designed for different use cases in archetype development. Understanding the differences between these families is crucial for effective archetype creation.
 

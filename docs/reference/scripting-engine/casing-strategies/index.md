@@ -6,23 +6,89 @@ sidebar_position: 3
 
 Casing strategies control how case transformations are applied to variable names and values in both `prompt` and `set` functions. They determine what variables are created and how the naming patterns are structured.
 
+:::tip Alternative Setting Names
+The casing setting supports multiple names that work identically in both Set and Prompt functions:
+- `cased_as` (primary/recommended)
+- `cased_with` (alternative)
+- `casing` (alternative) 
+- `cases` (alternative)
+
+Use any of these names in your settings map - they all reference the same underlying functionality.
+:::
+
 ## Quick Reference
 
 | Strategy | Purpose | Variable Pattern | Supported In |
 |----------|---------|------------------|--------------|
-| `CasedIdentityCasedValue` | Apply cases to original key and value | `{key}_{case}_case` | `prompt`, `set` |
+| `CasedIdentityCasedValue` | Apply cases to original key and value | `{key}_{case}_case` | `prompt` (cased map), `set` |
 | `CasedKeyCasedValue` | Apply cases to custom key and value | `{custom_key}_{case}_case` | `prompt` (cased map), `set` |
-| `FixedIdentityCasedValue` | Keep original key, case value only | `{key}` | `prompt`, `set` |
+| `FixedIdentityCasedValue` | Keep original key, case value only | `{key}` | `prompt` (cased map), `set` |
 | `FixedKeyCasedValue` | Fixed custom key, case value only | `{custom_key}` | `prompt` (cased map), `set` |
+| Individual Case Styles | Apply single case transformation | Returned value | `prompt` (single value), `set` |
 
 ## Strategy Behavior
 
-:::info Context
-Casing strategies work differently depending on the function and prompt type:
-- **Single Value Prompts**: Apply transformation to returned value
-- **Cased Map Prompts**: Generate multiple key-value pairs
-- **Set Function**: Apply transformation to assigned values
+:::info Casing Support by Function Type
+**Single Value Prompts**: Support individual case styles only (e.g., `PascalCase`, `SnakeCase`) applied directly to the returned value.
+
+**Cased Map Prompts**: Support complex casing strategies that generate multiple key-value pairs with different case transformations.
+
+**Set Function**: Support both individual case styles and complex casing strategies for flexible variable assignment.
 :::
+
+## Individual Case Styles
+
+Individual case styles apply a single case transformation and are supported by both single value prompts and set functions.
+
+### Usage in Single Value Prompts
+
+```rhai
+// Single value prompt with individual case style
+let service_name = prompt("Service name:", #{
+    cased_as: PascalCase
+});
+// Returns: "UserService" (if user entered "user service")
+
+let table_name = prompt("Table name:", #{
+    cased_as: SnakeCase  
+});
+// Returns: "user_account" (if user entered "User Account")
+```
+
+### Usage in Set Function
+
+```rhai
+// Set function with individual case style
+context += set("class-name", "user service", #{
+    cased_as: PascalCase
+});
+// Creates: class_name = "UserService"
+
+context += set("route-path", "user service", #{
+    cased_as: KebabCase
+});
+// Creates: route_path = "user-service"
+```
+
+### Available Individual Case Styles
+
+- `CamelCase` - `userService`
+- `PascalCase` - `UserService`  
+- `SnakeCase` - `user_service`
+- `KebabCase` - `user-service`
+- `ConstantCase` - `USER_SERVICE`
+- `TitleCase` - `User Service`
+- `SentenceCase` - `User service`
+- `LowerCase` - `user service`
+- `UpperCase` - `USER SERVICE`
+
+:::note Single Value Limitation
+Single value prompts cannot use complex strategies like `CasedIdentityCasedValue(PROGRAMMING_CASES)`. They only support individual case styles.
+:::
+
+## Complex Casing Strategies
+
+Complex casing strategies generate multiple variables with different case transformations. These are supported by cased map prompts and set functions only.
 
 ### CasedIdentityCasedValue
 
