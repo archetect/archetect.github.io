@@ -407,5 +407,5 @@ Directory rendering is the foundation of most archetype generation workflows, en
 ## Next Steps
 
 - Learn [Component Rendering](../components/) for archetype composition
-- Explore [String Rendering](../strings/) for inline template processing
+- Explore [String Rendering](../string/) for inline template processing
 - Check the Template documentation for advanced file template syntax

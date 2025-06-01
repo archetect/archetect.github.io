@@ -10,7 +10,7 @@ Archetect's rendering system provides three distinct ways to generate content du
 
 Archetect offers three primary rendering mechanisms:
 
-1. **[String Rendering](./strings/)** - Process individual template strings with context variables
+1. **[String Rendering](./string/)** - Process individual template strings with context variables
 2. **[Directory Rendering](./directories/)** - Render entire directory structures with templates
 3. **[Component Rendering](./components/)** - Compose archetypes as reusable components
 
@@ -57,7 +57,7 @@ Archetype("database").render(context);
 
 ## Getting Started
 
-1. **[Start with String Rendering](./strings/)** to understand template processing basics
+1. **[Start with String Rendering](./string/)** to understand template processing basics
 2. **[Learn Directory Rendering](./directories/)** for file system operations
 3. **[Master Component Rendering](./components/)** for archetype composition
 4. **Combine methods** to build sophisticated generation workflows

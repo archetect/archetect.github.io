@@ -519,6 +519,6 @@ Component rendering enables sophisticated archetype composition, allowing you to
 
 ## Next Steps
 
-- Learn [String Rendering](../strings/) for inline template processing
+- Learn [String Rendering](../string/) for inline template processing
 - Explore [Directory Rendering](../directories/) for file system operations
 - Check the main [Rendering overview](../) for combining all rendering methods
