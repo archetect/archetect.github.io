@@ -360,8 +360,28 @@ context.database_url = prompt("Database URL:", #{
 });
 ```
 
+## Case Transformations in Prompts
+
+For comprehensive case transformation capabilities, see the reference documentation:
+
+- **[Case Styles](../../../reference/scripting-engine/case-styles/)** - All available case transformation types (CamelCase, SnakeCase, etc.)
+- **[Case Strategies](../../../reference/scripting-engine/casing-strategies/)** - How to apply multiple case transformations in prompts and set functions
+- **[Prompts/Casing Strategies](../../../reference/scripting-engine/prompts/casing-strategies/)** - Prompt-specific casing usage
+
+### Quick Example
+
+```rhai
+// Apply case transformations to prompt input
+context += prompt("Service name:", "service", #{
+    cased_as: CasedKeyCasedValue("entity", [PascalCase, SnakeCase, KebabCase])
+});
+
+// Creates: entity_pascal_case, entity_snake_case, entity_kebab_case
+```
+
 ## Next Steps
 
-- Learn about [Casing](../casing/) for name transformations
+- Learn about [Case Styles](../../../reference/scripting-engine/case-styles/) for available transformation options
+- Explore [Case Strategies](../../../reference/scripting-engine/casing-strategies/) for applying multiple transformations
+- Check [Casing](../casing/) for comprehensive examples and patterns
 - Explore [Rhai Basics](../rhai-basics/) for language fundamentals
-- Check advanced patterns in the complete scripting documentation

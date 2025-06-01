@@ -2,9 +2,13 @@
 sidebar_position: 5
 ---
 
-# Casing Strategies
+# Casing Strategies in Prompts
 
-Casing strategies define how Archetect transforms user input into different case formats for use in templates. These strategies are essential for creating consistent naming conventions across programming languages and project structures.
+Casing strategies define how Archetect transforms user input into different case formats for use in templates within prompt functions specifically.
+
+:::tip Complete Reference
+For comprehensive casing strategy documentation including usage with `set` functions and advanced patterns, see [Casing Strategies](../../casing-strategies/).
+:::
 
 ## Overview
 
@@ -309,6 +313,9 @@ if switch_enabled("rust-project") {
 
 ## See Also
 
+- **[Casing Strategies](../../casing-strategies/)** - Complete reference for all casing strategies
+- **[Case Styles](../../case-styles/)** - All available case transformation types
 - **[Single Value Prompts](../single-value)** - Using casing with scalar values
 - **[Cased Map Prompts](../cased-map)** - Using casing with map generation
-- **[Templating Fundamentals](../../../../authoring/templating/fundamentals)** - Using cased variables in templates
+- **Set Function** - Applying case transformations to variables (coming soon)
+- **[Templating Fundamentals](../../../../authoring/templating/fundamentals/)** - Using cased variables in templates

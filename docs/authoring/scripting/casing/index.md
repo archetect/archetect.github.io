@@ -6,25 +6,30 @@ sidebar_position: 3
 
 Archetect provides powerful case transformation capabilities that allow you to generate consistent naming conventions across different programming languages and contexts. This is essential for creating templates that follow language-specific conventions.
 
-## Available Case Constants
+## Quick Reference
 
-```rhai
-// Case style constants
-CamelCase        // userServiceName
-PascalCase       // UserServiceName  
-SnakeCase        // user_service_name
-KebabCase        // user-service-name
-ConstantCase     // USER_SERVICE_NAME
-TitleCase        // User Service Name
-SentenceCase     // User service name
-TrainCase        // User-Service-Name
-DirectoryCase    // user/service/name
-PackageCase      // user.service.name
-ClassCase        // UserServiceName (alias for PascalCase)
-CobolCase        // USER-SERVICE-NAME
-LowerCase        // user service name
-UpperCase        // USER SERVICE NAME
-```
+:::tip
+For comprehensive details, see [Case Styles](../../../reference/scripting-engine/case-styles/) and [Case Strategies](../../../reference/scripting-engine/casing-strategies/) reference documentation.
+:::
+
+### Common Case Styles
+
+| Style | Example | Use Case |
+|-------|---------|----------|
+| `CamelCase` | `userServiceName` | JavaScript variables, Java methods |
+| `PascalCase` | `UserServiceName` | Class names, types |
+| `SnakeCase` | `user_service_name` | Rust variables, Python functions |
+| `KebabCase` | `user-service-name` | URLs, CSS classes, CLI flags |
+| `ConstantCase` | `USER_SERVICE_NAME` | Constants, environment variables |
+
+### Case Strategies Overview
+
+| Strategy | Purpose |
+|----------|---------|
+| `CasedIdentityCasedValue` | Create multiple variants from original key |
+| `CasedKeyCasedValue` | Create multiple variants with custom key |
+| `FixedIdentityCasedValue` | Single transformation, keep original key |
+| `FixedKeyCasedValue` | Single transformation, use custom key |
 
 ## Direct Case Functions
 
@@ -80,47 +85,72 @@ set("service_name", "user service", #{
 // service_name_kebab_case = "user-service"
 ```
 
-## Advanced Case Strategies
+## Case Strategy Details
+
+:::info
+Case strategies determine how case transformations are applied to both variable names (keys) and their values during prompting and variable assignment.
+:::
 
 ### CasedIdentityCasedValue
 
-Apply cases to both the key name and value:
+Applies case transformations to both the original key name and the value, creating multiple variables with the pattern `{key}_{case}_case`.
 
 ```rhai
 context += prompt("Services:", "services", #{
     type: List,
     cased_as: CasedIdentityCasedValue([PascalCase, SnakeCase])
 });
-// Result: 
-// services: [...] (original)
-// Services: [...] (PascalCase key)
-// services: [...] (SnakeCase key, same as original)
+// Creates variables:
+// services = [...] (original)
+// services_pascal_case = [...] (with PascalCase applied to values)
+// services_snake_case = [...] (with SnakeCase applied to values)
 ```
+
+**When to use**: When you need the same data in multiple case formats but want to keep the original variable name as the base.
 
 ### CasedKeyCasedValue
 
-Apply cases to a custom key:
+Applies case transformations using a custom key name instead of the original prompt key, creating variables with the pattern `{custom_key}_{case}_case`.
 
 ```rhai
 context += prompt("Service name:", "service", #{
-    cased_as: CasedKeyCasedValue("service_name", [CamelCase, ConstantCase])
+    cased_as: CasedKeyCasedValue("entity_name", [CamelCase, ConstantCase])
 });
-// Result:
-// service_name_camel_case = "serviceName"
-// service_name_constant_case = "SERVICE_NAME"
+// Creates variables:
+// entity_name_camel_case = "serviceName"
+// entity_name_constant_case = "SERVICE_NAME"
+// Note: No "service" variable is created
 ```
+
+**When to use**: When you want to use a different variable naming scheme than the prompt key, or when generating semantic variable names.
+
+### FixedIdentityCasedValue
+
+Keeps the original key unchanged but applies a single case transformation to the value only.
+
+```rhai
+context += prompt("Component name:", "component", #{
+    cased_as: FixedIdentityCasedValue(PascalCase)
+});
+// Creates variables:
+// component = "ComponentName" (original key with cased value)
+```
+
+**When to use**: When you only need one case transformation and want to keep the original variable name simple.
 
 ### FixedKeyCasedValue
 
-Fixed key with cased value:
+Uses a fixed custom key name with a single case transformation applied to the value.
 
 ```rhai
 context += prompt("API name:", "api", #{
-    cased_as: FixedKeyCasedValue("api_endpoint", KebabCase)
+    cased_as: FixedKeyCasedValue("endpoint_name", KebabCase)
 });
-// Result:
-// api_endpoint = "api-name" (in kebab-case)
+// Creates variables:
+// endpoint_name = "api-name" (fixed key with cased value)
 ```
+
+**When to use**: When you need a specific variable name with a specific case transformation, typically for targeted template usage.
 
 ### Complex Case Strategies
 
@@ -343,8 +373,15 @@ for name in entity_names {
 }
 ```
 
+## Reference Documentation
+
+For detailed information on case transformations:
+
+- **[Case Styles](../../../reference/scripting-engine/case-styles/)** - Complete reference of all 14 case transformation types
+- **[Case Strategies](../../../reference/scripting-engine/casing-strategies/)** - Detailed guide to applying multiple transformations in prompts and set functions
+
 ## Next Steps
 
-- Explore [Prompting](../prompting/) for gathering user input
+- Explore [Prompting](../prompting/) for gathering user input with case transformations
 - Learn [Rhai Basics](../rhai-basics/) for core language features
-- Check the template documentation for using cased variables in Jinja templates
+- Check template documentation for using cased variables in Jinja templates
