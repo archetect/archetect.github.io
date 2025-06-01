@@ -543,6 +543,6 @@ String rendering provides powerful in-memory template processing capabilities, e
 
 ## Next Steps
 
-- Learn [Component Rendering](../components/) for archetype composition
+- Learn [Archetype Rendering](../archetype/) for archetype composition
 - Explore [Directory Rendering](../directories/) for file-based template processing
 - Check the Template documentation for advanced Jinja2 syntax features
