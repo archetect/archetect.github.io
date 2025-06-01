@@ -1,22 +1,27 @@
 # Directory
 
-The `Directory` type enables rendering entire directory structures from templates within Archetect scripts. It provides flexible options for destination paths, template contexts, and file overwrite policies.
+The `Directory` type enables rendering entire directory structures from archetype contents within Archetect scripts. It provides flexible options for destination paths, rendering contexts, and file overwrite policies.
 
 ## Constructor
 
 ### Directory(path)
 
-Creates a new Directory instance for template rendering.
+Creates a new Directory instance for content rendering.
 
 **Parameters:**
-- `path` (string) - Path to the source directory containing templates
+- `path` (string) - Path to the source directory **relative to the archetype root**
 
 **Returns:** Directory instance
 
 **Example:**
 ```rhai
-let dir = Directory("templates/project");
+// Path is relative to the archetype root directory
+let dir = Directory("contents/project");
 ```
+
+:::note Archetype Root Paths
+The path parameter is always relative to the root of the archetype, not the current working directory or script location.
+:::
 
 ## Calling Patterns
 
@@ -24,15 +29,15 @@ Directory rendering supports two calling styles:
 
 ### Function-Style Calling
 ```rhai
-render(Directory("templates/path"), context);
-render(Directory("templates/path"), context, settings);
-render(Directory("templates/path"), destination, context);
-render(Directory("templates/path"), destination, context, settings);
+render(Directory("contents/path"), context);
+render(Directory("contents/path"), context, settings);
+render(Directory("contents/path"), destination, context);
+render(Directory("contents/path"), destination, context, settings);
 ```
 
 ### Method-Style Calling  
 ```rhai
-let dir = Directory("templates/path");
+let dir = Directory("contents/path");
 dir.render(context);
 dir.render(context, settings);
 dir.render(destination, context);
@@ -47,7 +52,7 @@ Both patterns are functionally equivalent. Choose based on your use case:
 - Functional programming style
 
 **Method-style** is better for:
-- Reusing the same directory template multiple times
+- Reusing the same directory contents multiple times
 - More readable code when using complex settings
 - Object-oriented programming style
 
@@ -55,7 +60,7 @@ Both patterns are functionally equivalent. Choose based on your use case:
 
 | Function Style | Method Style |
 |----------------|--------------|
-| `render(Directory("templates"), ctx)` | `Directory("templates").render(ctx)` |
+| `render(Directory("contents"), ctx)` | `Directory("contents").render(ctx)` |
 | `render(Directory("src"), "output", ctx)` | `Directory("src").render("output", ctx)` |
 
 ## Method Reference
@@ -76,11 +81,11 @@ The Directory type provides render method variations with different parameter co
 Renders the directory using default settings and destination.
 
 **Parameters:**
-- `context` (Map) - Template variables for rendering
+- `context` (Map) - Variables for rendering
 
 **Example:**
 ```rhai
-let dir = Directory("templates/basic");
+let dir = Directory("contents/basic");
 let context = #{
     project_name: "my-project",
     author: "John Doe"
@@ -93,7 +98,7 @@ dir.render(context);
 Renders the directory with custom settings including overwrite policy.
 
 **Parameters:**
-- `context` (Map) - Template variables for rendering
+- `context` (Map) - Variables for rendering
 - `settings` (Map) - Configuration options
 
 **Settings Options:**
@@ -101,7 +106,7 @@ Renders the directory with custom settings including overwrite policy.
 
 **Example:**
 ```rhai
-let dir = Directory("templates/advanced");
+let dir = Directory("contents/advanced");
 let context = #{
     project_name: "my-project"
 };
@@ -117,13 +122,13 @@ Renders the directory to a custom destination path. The destination can be eithe
 
 **Parameters:**
 - `destination` (string or Path) - Target directory path
-- `context` (Map) - Template variables for rendering
+- `context` (Map) - Variables for rendering
 
 **Examples:**
 
 With string destination:
 ```rhai
-let dir = Directory("templates/service");
+let dir = Directory("contents/service");
 let context = #{
     service_name: "user-service",
     port: 8080
@@ -133,7 +138,7 @@ dir.render("./output/services", context);
 
 With Path object destination:
 ```rhai
-let dir = Directory("templates/module");
+let dir = Directory("contents/module");
 let dest_path = Path("./src/modules");
 let context = #{
     module_name: "authentication"
@@ -147,14 +152,14 @@ Renders with destination path and custom settings. The destination can be either
 
 **Parameters:**
 - `destination` (string or Path) - Target directory path
-- `context` (Map) - Template variables for rendering
+- `context` (Map) - Variables for rendering
 - `settings` (Map) - Configuration options
 
 **Examples:**
 
 With Path object and settings:
 ```rhai
-let dir = Directory("templates/component");
+let dir = Directory("contents/component");
 let dest_path = Path("./components");
 let context = #{
     component_name: "UserProfile"
@@ -167,7 +172,7 @@ dir.render(dest_path, context, settings);
 
 With string destination and settings:
 ```rhai
-let dir = Directory("templates/api");
+let dir = Directory("contents/api");
 let context = #{
     api_version: "v1",
     database: "postgresql"
@@ -203,15 +208,15 @@ let settings = #{
 
 ```rhai
 // Method-style: create once, render multiple times
-let templates = Directory("templates/basic-app");
+let contents = Directory("contents/basic-app");
 let context = #{
     app_name: "todo-app",
     author: "Developer"
 };
-templates.render(context);
+contents.render(context);
 
 // Function-style: one-time rendering
-render(Directory("templates/basic-app"), #{
+render(Directory("contents/basic-app"), #{
     app_name: "todo-app",
     author: "Developer"
 });
@@ -221,7 +226,7 @@ render(Directory("templates/basic-app"), #{
 
 ```rhai
 // Render with overwrite protection
-let api_templates = Directory("templates/rest-api");
+let api_contents = Directory("contents/rest-api");
 let context = #{
     service_name: "user-service",
     database_type: "postgres"
@@ -229,14 +234,14 @@ let context = #{
 let settings = #{
     if_exists: Preserve  // Don't overwrite existing files
 };
-api_templates.render(context, settings);
+api_contents.render(context, settings);
 ```
 
 ### Multiple Destination Rendering
 
 ```rhai
 // Method-style: reuse Directory instance for multiple renders
-let shared_templates = Directory("templates/shared");
+let shared_contents = Directory("contents/shared");
 let contexts = [
     #{ service: "auth", port: 3001 },
     #{ service: "users", port: 3002 },
@@ -245,14 +250,14 @@ let contexts = [
 
 for ctx in contexts {
     let dest = `./services/${ctx.service}`;
-    shared_templates.render(dest, ctx);
+    shared_contents.render(dest, ctx);
 }
 
 // Function-style alternative: inline for each service
 let services = ["auth", "users", "orders"];
 for (i, service) in services.enumerate() {
     let port = 3001 + i;
-    render(Directory("templates/shared"), `./services/${service}`, #{
+    render(Directory("contents/shared"), `./services/${service}`, #{
         service: service,
         port: port
     });
@@ -263,7 +268,7 @@ for (i, service) in services.enumerate() {
 
 ```rhai
 // Method-style: efficient for multiple environments
-let config_templates = Directory("templates/config");
+let config_contents = Directory("contents/config");
 let environments = ["development", "staging", "production"];
 
 for env in environments {
@@ -278,17 +283,17 @@ for env in environments {
         if_exists: Overwrite  // Always update configs
     };
     
-    config_templates.render(dest_path, context, settings);
+    config_contents.render(dest_path, context, settings);
 }
 
 // Function-style: direct rendering per environment  
-render(Directory("templates/config"), Path("./config/development"), #{
+render(Directory("contents/config"), Path("./config/development"), #{
     environment: "development",
     debug_enabled: true,
     log_level: "debug"
 }, #{ if_exists: Overwrite });
 
-render(Directory("templates/config"), Path("./config/production"), #{
+render(Directory("contents/config"), Path("./config/production"), #{
     environment: "production", 
     debug_enabled: false,
     log_level: "error"
@@ -306,7 +311,7 @@ Directory rendering operations return errors for:
 **Example with error handling:**
 ```rhai
 try {
-    let dir = Directory("templates/project");
+    let dir = Directory("contents/project");
     let context = #{ name: "test-project" };
     dir.render(context);
     print("✓ Directory rendered successfully");
@@ -321,9 +326,9 @@ try {
 Directory operations automatically prevent path traversal attacks. All paths are validated and restricted to safe locations.
 :::
 
-:::note Template Processing
-- All files are treated as templates regardless of extension
-- Binary files are automatically detected and copied without template processing
+:::note Content Processing
+- All files are processed as content with Jinja templating regardless of extension
+- Binary files are automatically detected and copied without content processing
 - Use appropriate file extensions for better IDE support
 :::
 
