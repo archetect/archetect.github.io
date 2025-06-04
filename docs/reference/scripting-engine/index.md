@@ -18,4 +18,4 @@ This section provides comprehensive reference documentation for Archetect's Rhai
 
 ## Related Documentation
 
-For practical usage examples and patterns, see the [Authoring Guide](../../authoring/) sections on [Scripting](../../authoring/scripting/) and [Templating](../../authoring/templating/).
+For practical usage examples and patterns, see the [Authoring Guide](../../authoring-archetypes/) sections on [Scripting](../../authoring-archetypes/scripting/) and [Templating](../../authoring-archetypes/templating/).

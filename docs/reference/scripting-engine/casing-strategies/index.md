@@ -576,4 +576,4 @@ environment:
 - **[Case Styles](../case-styles/)** - Available case transformation types
 - **[Prompts/Casing Strategies](../prompts/casing-strategies/)** - Using strategies in prompt functions
 - **Set Function** - Applying case transformations to variables (coming soon)
-- **[Templating Fundamentals](../../../authoring/templating/fundamentals/)** - Using cased variables in templates
+- **[Templating Fundamentals](../../../authoring-archetypes/templating/fundamentals/)** - Using cased variables in templates

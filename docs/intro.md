@@ -36,5 +36,5 @@ This documentation is organized into several main sections:
 
 - **[Getting Started](./getting-started/)**: Installation, quick start, and basic concepts
 - **[User Guide](./user-guide/)**: Using Archetect to generate code from existing archetypes
-- **[Authoring Guide](./authoring/)**: Creating your own archetypes and templates
+- **[Authoring Guide](./authoring-archetypes/)**: Creating your own archetypes and templates
 - **[Reference](./user-guide/)**: Complete CLI reference and configuration guide

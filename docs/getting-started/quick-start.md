@@ -218,9 +218,9 @@ Congratulations! You've successfully generated your first project with Archetect
 - [Working with Catalogs](../user-guide/catalogs) - Browse collections of archetypes
 
 ### Start Creating Your Own
-- [Authoring Guide](../authoring/) - Create custom archetypes
-- [Templating](../authoring/templating) - Learn the templating language
-- [Scripting](../authoring/scripting) - Add interactive logic with Rhai
+- [Authoring Guide](../authoring-archetypes/) - Create custom archetypes
+- [Templating](../authoring-archetypes/templating) - Learn the templating language
+- [Scripting](../authoring-archetypes/scripting) - Add interactive logic with Rhai
 
 ### Join the Community
 - [GitHub Repository](https://github.com/archetect/archetect) - Source code and issues

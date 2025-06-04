@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Authoring Guide
+# Authoring Archetypes
 
 This comprehensive guide covers everything you need to know about creating your own Archetect archetypes, from simple templates to sophisticated interactive generators with complex logic.
 
