@@ -34,7 +34,9 @@ This is a Docusaurus v3 static site generator project for the Archetect document
 
 ## Documentation Guidelines
 
-- All doc pages will use front matter for sidebar labels and position
+- All pages under 'docs' must have a sidebar_position and sidebar_label in front matter for managing labels and positions of pages.
+- Do not create _catalog_.json files.
+- Replace _category_.json files with the front matter strategy whenever you find them.
 - All persistent plans will be stored at the root of the project in TODO.md with checkboxes placed for completed work
 - When asked to resume work, check in the root of the project for unchecked items in TODO.md
 - Experiments and Troubleshooting tools/scripts should be in a python file at the root of the project called test_harness.py

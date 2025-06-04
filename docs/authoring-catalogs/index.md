@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
+sidebar_label: Authoring Catalogs
 ---
 
 # Authoring Catalogs
@@ -210,8 +211,8 @@ Show archetypes based on user context:
 ```yaml
 # archetype.yaml
 requirements:
-  - platform: linux,macos  # Not available on Windows
-  - min_version: 2.0.0     # Requires Archetect 2.0+
+  - platform: linux,macos # Not available on Windows
+  - min_version: 2.0.0 # Requires Archetect 2.0+
 ```
 
 ## Publishing Your Catalog
@@ -267,15 +268,18 @@ Include comprehensive documentation:
 
 ```markdown
 # README.md
+
 # My Awesome Catalog
 
 ## Available Archetypes
 
 ### Rust
+
 - **cli**: Command-line application with clap
 - **web-service**: Async web service with actix-web
 
 ### Python
+
 - **fastapi-service**: Modern API with FastAPI
 - **django-app**: Full-featured web application
 
@@ -337,7 +341,7 @@ Use semantic versioning for your catalog:
 
 ```yaml
 # catalog.yaml
-version: 2.1.0  # Major.Minor.Patch
+version: 2.1.0 # Major.Minor.Patch
 ```
 
 ### Update Strategy
