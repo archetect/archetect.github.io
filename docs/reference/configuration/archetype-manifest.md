@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Archetype Manifest
 
 The archetype manifest (`archetype.yaml` or `archetype.yml`) is the configuration file that defines an archetype's metadata, requirements, and behavior. This file must be present in the root directory of every archetype.
@@ -5,7 +9,8 @@ The archetype manifest (`archetype.yaml` or `archetype.yml`) is the configuratio
 ## File Location and Naming
 
 Archetect looks for the manifest file in the archetype root directory with these names (in order):
-- `archetype.yml` 
+
+- `archetype.yml`
 - `archetype.yaml`
 
 :::note
@@ -52,13 +57,13 @@ components:
 
 # Optional: Scripting configuration
 scripting:
-  main: "archetype.rhai"      # Main orchestration script
-  modules: "modules"          # Directory containing script modules
+  main: "archetype.rhai" # Main orchestration script
+  modules: "modules" # Directory containing script modules
 
-# Optional: Templating configuration  
+# Optional: Templating configuration
 templating:
-  content: "."                # Content directory (default: ".")
-  templates: "templates"      # Templates directory (default: "templates")
+  content: "." # Content directory (default: ".")
+  templates: "templates" # Templates directory (default: "templates")
   undefined_behavior: "Strict" # How to handle undefined variables
 ```
 
@@ -78,10 +83,11 @@ Specifies the minimum Archetect version required to run this archetype:
 
 ```yaml
 requires:
-  archetect: ">=2.0.0"    # Semantic version requirement
+  archetect: ">=2.0.0" # Semantic version requirement
 ```
 
 Common version patterns:
+
 - `"2.0.0"` - Exact version
 - `">=2.0.0"` - Minimum version
 - `"^2.0.0"` - Compatible version (2.x.x)
@@ -140,13 +146,13 @@ Components allow an archetype to include other archetypes as reusable modules:
 components:
   # Local relative path
   database: "./database-module"
-  
+
   # Git repository (latest)
   auth: "https://github.com/example/auth-archetype.git"
-  
+
   # Git repository with branch/tag
   logging: "https://github.com/example/logging.git#v1.2.0"
-  
+
   # Git repository with specific commit
   utils: "https://github.com/example/utils.git@abc123"
 ```
@@ -161,8 +167,8 @@ Controls the Rhai scripting engine behavior:
 
 ```yaml
 scripting:
-  main: "archetype.rhai"      # Main orchestration script
-  modules: "modules"          # Directory for script modules
+  main: "archetype.rhai" # Main orchestration script
+  modules: "modules" # Directory for script modules
 ```
 
 ### Default Values
@@ -180,8 +186,8 @@ Controls the Jinja2-like templating engine:
 
 ```yaml
 templating:
-  content: "."                # Content directory
-  templates: "templates"      # Templates directory  
+  content: "." # Content directory
+  templates: "templates" # Templates directory
   undefined_behavior: "Strict" # Variable handling
 ```
 
@@ -206,12 +212,13 @@ Controls how the templating engine handles undefined variables:
 
 ```yaml
 templating:
-  undefined_behavior: "Strict"    # Fail on undefined variables (default)
-  # undefined_behavior: "Lenient"  # Ignore undefined variables  
+  undefined_behavior: "Strict" # Fail on undefined variables (default)
+  # undefined_behavior: "Lenient"  # Ignore undefined variables
   # undefined_behavior: "Chainable" # Allow chaining through undefined
 ```
 
 **Options:**
+
 - `Strict` (default): Throws an error when encountering undefined variables
 - `Lenient`: Undefined variables render as empty strings
 - `Chainable`: Allows property access on undefined variables (useful for optional objects)
@@ -229,8 +236,9 @@ Archetect treats **all files** as templates regardless of their extension. Files
 ## Validation
 
 The manifest is validated for:
+
 - **YAML syntax**: Must be valid YAML
-- **Required fields**: `description` and `requires` must be present  
+- **Required fields**: `description` and `requires` must be present
 - **Version format**: `requires.archetect` must be a valid semantic version requirement
 - **Path format**: All path fields must be valid relative paths
 - **Component sources**: Must be valid Git URLs or relative paths

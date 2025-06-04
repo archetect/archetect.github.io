@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Answer Files
 
 Answer files allow you to pre-populate answers to archetype prompts, enabling automated and repeatable archetype generation. This is particularly useful for CI/CD pipelines, batch operations, or when you have standard configurations that you want to reuse.
@@ -74,11 +78,7 @@ Compact format, useful for programmatic generation:
   "port": 3000,
   "api_version": "v1",
   "license": "MIT",
-  "features": [
-    "authentication",
-    "api", 
-    "frontend"
-  ],
+  "features": ["authentication", "api", "frontend"],
   "database_config": {
     "host": "localhost",
     "port": 5432,
@@ -98,30 +98,30 @@ Dynamic format using Rhai scripting, allows computed values:
   description: "A modern web application",
   author_name: "John Doe",
   author_email: "john@example.com",
-  
+
   // Technology choices
   language: "TypeScript",
   framework: "React",
   database: "PostgreSQL",
-  
+
   // Computed values
   project_slug: "my-awesome-project".to_lower().replace(" ", "-"),
   timestamp: timestamp(),
   year: parse_int(format_time(timestamp(), "%Y")),
-  
+
   // Conditional logic
   enable_auth: true,
   enable_testing: true,
   enable_docker: false,
-  
+
   // Configuration
   port: 3000,
   api_version: "v1",
   license: "MIT",
-  
+
   // Arrays
   features: ["authentication", "api", "frontend"],
-  
+
   // Nested objects
   database_config: #{
     host: "localhost",
@@ -178,7 +178,7 @@ Answer files support all JSON/YAML data types:
 
 ```yaml
 project_name: "My Project"
-description: 'Single quoted string'
+description: "Single quoted string"
 unquoted_string: Simple value
 ```
 
@@ -239,7 +239,7 @@ project_name: "my-project"
 description: "Project description"
 version: "1.0.0"
 
-# Author information  
+# Author information
 author_name: "John Doe"
 author_email: "john@example.com"
 organization: "ACME Corp"
@@ -266,7 +266,7 @@ answers-base.yaml
 
 # Environment-specific overrides
 answers-development.yaml
-answers-staging.yaml  
+answers-staging.yaml
 answers-production.yaml
 ```
 
@@ -282,12 +282,12 @@ Add comments to YAML answer files for clarity:
 
 ```yaml
 # Core project settings
-project_name: "my-project"  # Used for directory name and package.json
-description: "Web application"  # Used in README and package.json
+project_name: "my-project" # Used for directory name and package.json
+description: "Web application" # Used in README and package.json
 
 # Database configuration
-database_host: "localhost"  # Development: localhost, Production: db.example.com
-database_port: 5432         # Standard PostgreSQL port
+database_host: "localhost" # Development: localhost, Production: db.example.com
+database_port: 5432 # Standard PostgreSQL port
 ```
 
 ## Error Handling
@@ -332,13 +332,13 @@ Error parsing answer config: found character '%' that cannot start any token
 
 ```yaml title=".github/workflows/generate.yml"
 name: Generate Project
-on: 
+on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Target environment'
+        description: "Target environment"
         required: true
-        default: 'development'
+        default: "development"
 
 jobs:
   generate:

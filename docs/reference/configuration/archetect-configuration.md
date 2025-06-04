@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Archetect Configuration
 
 Archetect uses YAML as its configuration format. Configuration files can use either `.yaml` or `.yml` file extensions and are processed in a specific order to allow for flexible deployment scenarios.
