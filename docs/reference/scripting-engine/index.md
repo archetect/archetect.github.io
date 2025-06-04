@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Scripting Engine
 
 This section provides comprehensive reference documentation for Archetect's Rhai-based scripting system.
