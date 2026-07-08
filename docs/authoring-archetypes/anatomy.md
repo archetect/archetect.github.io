@@ -45,7 +45,7 @@ templating:
 ```
 
 - `description` appears in catalog menus and search results; `summary`, `languages`, `frameworks`, and `tags` feed `archetect search`.
-- `requires.archetect` is the minimum Archetect version.
+- `requires.archetect` is the Archetect version contract: the major version must match strictly (Archetect 3 renders only `3.x` archetypes), and within the major it's a minimum.
 - `templating` tunes the ATL engine — see [Templating Configuration](./templating/configuration).
 - A `catalog:` section declares composed archetypes and libraries — see [Composition](./scripting/composition).
 

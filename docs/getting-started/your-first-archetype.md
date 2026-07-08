@@ -27,7 +27,7 @@ requires:
   archetect: "3.0.0"
 ```
 
-The `description` tells users what this archetype does; `requires.archetect` declares the minimum Archetect version it needs.
+The `description` tells users what this archetype does; `requires.archetect` declares the Archetect version it needs — the major version must match (a `3.x` archetype only renders with Archetect 3), and within that major it acts as a minimum.
 
 ## 3. Write the script
 

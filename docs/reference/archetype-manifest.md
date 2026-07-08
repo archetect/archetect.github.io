@@ -42,9 +42,12 @@ Unknown fields are silently ignored by the parser — a typo'd section will not 
 
 | Field | Type | Default | Description |
 |---|---|---|---|
-| `archetect` | semver version requirement | the running Archetect's own version | Minimum Archetect version this archetype needs. |
+| `archetect` | semver version requirement | the running Archetect's own version | Archetect version this archetype needs: major must match; minor/patch is a minimum. |
 
-The value is parsed as a semver version requirement (e.g. `"3.0.0"`) and treated as a **minimum version**: the running Archetect must be at least that version. A newer major version satisfies an older requirement (Archetect 3.x renders archetypes that require 2.x), while an older binary fails with a clear error.
+The value is parsed as a semver version requirement (e.g. `"3.0.0"`) and enforced in two parts:
+
+- **The major version must match exactly.** Major versions of Archetect are strictly separated — an archetype requiring `2.x` renders only with Archetect 2, and one requiring `3.x` only with Archetect 3. Rendering a `2.x` archetype under Archetect 3 fails with an error directing you to the `archetect2` binary.
+- **Within the major, the requirement is a minimum.** Archetect 3.1 renders an archetype requiring `"3.0.0"`; Archetect 3.0 fails a `"3.1.0"` requirement with a clear error.
 
 ```yaml
 requires:
@@ -166,7 +169,7 @@ frameworks: ["Tonic"]
 tags: ["service", "grpc"]
 
 requires:
-  archetect: "3.0.0"                      # minimum Archetect version
+  archetect: "3.0.0"                      # major must match; minimum within the major
 
 templating:
   undefined: strict                       # error on undefined variables
