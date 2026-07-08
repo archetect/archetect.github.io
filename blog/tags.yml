@@ -1,19 +1,9 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+announcements:
+  label: Announcements
+  permalink: /announcements
+  description: Archetect release announcements and project news
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
-
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+archetect:
+  label: Archetect
+  permalink: /archetect
+  description: Posts about the Archetect code generator

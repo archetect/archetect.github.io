@@ -3,9 +3,9 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: `Site archetect.github.io`,
-  tagline: `Documentation built with Docusaurus`,
-  favicon: 'img/favicon.ico',
+  title: `Archetect`,
+  tagline: `A Flexible, Powerful, and Blazingly Fast Code Generator`,
+  favicon: 'img/favicon.svg',
 
   future: {
     v4: true,
@@ -71,15 +71,15 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/archetect-social-card.png',
     colorMode: {
       defaultMode: 'dark',
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: `Site archetect.github.io`,
+      title: `Archetect`,
       logo: {
-        alt: `Site archetect.github.io Logo`,
+        alt: `Archetect Logo`,
         src: 'img/logo.svg',
       },
       items: [
@@ -90,9 +90,8 @@ const config: Config = {
           label: 'Docs',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
-        {type: 'docsVersionDropdown', position: 'right'},
         {
-          href: 'https://github.com/archetect/archetect.github.io',
+          href: 'https://github.com/archetect/archetect',
           label: 'GitHub',
           position: 'right',
         },
@@ -105,19 +104,35 @@ const config: Config = {
           title: 'Docs',
           items: [
             {label: 'Introduction', to: '/docs/intro'},
+            {label: 'Getting Started', to: '/docs/getting-started/'},
+            {label: 'Reference', to: '/docs/reference/'},
           ],
         },
         {
           title: 'Community',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/archetect/archetect.github.io',
+              label: 'GitHub Organization',
+              href: 'https://github.com/archetect',
+            },
+            {
+              label: 'Issues & Discussions',
+              href: 'https://github.com/archetect/archetect/issues',
+            },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
+            {label: 'Blog', to: '/blog'},
+            {
+              label: 'Archetect on GitHub',
+              href: 'https://github.com/archetect/archetect',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Site archetect.github.io. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Archetect. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
