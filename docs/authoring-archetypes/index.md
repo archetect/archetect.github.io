@@ -25,7 +25,7 @@ Local directories render directly (no cache, no git), so iteration is instant: e
 - **[Anatomy of an Archetype](./anatomy)** — every file and directory and what it's for.
 - **[Scripting with Lua](./scripting/)** — prompts, context, rendering, composition, libraries, and the utility modules.
 - **[Templating with ATL](./templating/)** — template syntax, filters, and organization.
-- **[Declarative Interfaces](./interface)** — describing your archetype's inputs so portals and AI agents can drive it.
+- **[Derived Interfaces](./interface)** — how archetect derives your archetype's inputs by probing it, so portals and AI agents can drive it.
 - **[Testing & Debugging](./testing-and-debugging)** — tight feedback loops and troubleshooting.
 
 ## Kinds of archetypes

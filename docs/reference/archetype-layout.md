@@ -12,7 +12,6 @@ The normative directory and file layout of an archetype on disk. For a guided to
 |---|---|---|
 | `archetype.yaml` | **Yes** | The [manifest](./archetype-manifest). Loading a directory without one fails. (`archetype.yml`, `archetect.yaml`, `archetect.yml` are accepted aliases, in that priority order.) |
 | `archetype.lua` | No | The Lua entry-point script. The filename is **fixed** — Archetect looks for exactly `archetype.lua` at the archetype root. |
-| `interface.yaml` | No | Declarative [input contract](./archetype-manifest#interface). Takes precedence over an inline `interface:` section in the manifest. (`interface.yml` also accepted.) |
 | Content directories | No | Template trees rendered via `directory.render(path, context)`. Any name, any number — paths are root-relative. |
 | `lib/` | No | Lua modules. Automatically on `package.path` — `require("helpers")` resolves `lib/helpers.lua`. Also what gets staged into consumers when this archetype is used as a [`library: true`](./catalog-manifest#library-true) dependency. |
 | `includes/` | No | [ATL](./templating/) include templates. Automatically on the include search path — `{% include "header.atl" %}` resolves here. Also staged into consumers for library dependencies. |
@@ -62,7 +61,6 @@ The include resolver searches, in order:
 ```text
 rust-grpc-service/
 ├── archetype.yaml            # manifest (required)
-├── interface.yaml            # declarative input contract (optional)
 ├── archetype.lua             # entry-point script (fixed name)
 ├── lib/                      # Lua modules → require("naming"), require("prompts")
 │   ├── naming.lua

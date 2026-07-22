@@ -2,93 +2,82 @@
 sidebar_position: 4
 ---
 
-# Declarative Interfaces
+# Derived Interfaces
 
-Your Lua script defines what an archetype *does*. An **interface** declares what it *needs* — prompts and switches, as data — so external tooling (web portals, MCP-driven AI agents, documentation generators) can present proper input forms without executing the script.
+Your Lua script defines what an archetype *does* — and because every input flows through a
+`ctx:prompt_*` call, it also defines what it *needs*. Archetect derives the interface by
+**probing the script**: running it against a recording driver that answers prompts instead
+of asking anyone, discards writes, forbids shell execution, and captures every prompt's
+full envelope along the way.
 
-Interfaces are optional and purely additive: the Lua script remains the engine; the interface describes it.
+There is nothing to declare and nothing to keep in sync. The prompts are the interface.
 
-## Declaring an interface
-
-Either inline in `archetype.yaml` under `interface:`, or in a sibling `interface.yaml` (which takes precedence if both exist):
-
-```yaml
-# interface.yaml
-mode: batch
-
-prompts:
-  - key: project-name
-    type: text
-    label: "Project Name"
-    help: "Lowercase letters, digits, and dashes"
-    placeholder: "my-service"
-    validation: "^[a-z][a-z0-9-]*$"
-
-  - key: database
-    type: select
-    label: "Database"
-    default: PostgreSQL
-    options:
-      - PostgreSQL
-      - MySQL
-      - { value: sqlite, label: "SQLite", help: "Embedded, zero-config" }
-
-  - key: features
-    type: multiselect
-    label: "Features"
-    required: false
-    defaults: [logging]
-    options: [logging, metrics, tracing]
-
-switches:
-  - key: docker
-    label: "Docker support"
-    help: "Adds Dockerfile and .dockerignore"
-
-groups:
-  - label: "Identity"
-    keys: [project-name]
-  - label: "Stack"
-    keys: [database, features]
+```
+archetect interface <source | catalog-path>
 ```
 
-## The schema, briefly
+```
+# Derived interface — services/grpc
+mode: Interactive · coverage: DefaultPath · 1 run(s)
 
-**Prompts** mirror the scripting prompt types — `text`, `int`, `bool`, `select`, `multiselect`, `list`, `editor` — with declarative counterparts of the script options:
+Prompts (answer with -a <key>=<value> / -A <file> / MCP answers):
+  project_name         text  ·  required  ·  pattern: ^[a-z][a-z0-9-]*$
+                         "Project Name:"
+  database             select  ·  default: "postgres"  ·  options: [postgres, sqlite]
+                         "Database:"
 
-| Field | Notes |
-|---|---|
-| `key` | Must match what the script prompts for |
-| `type` | One of the seven prompt types |
-| `label` | Human-readable prompt label |
-| `help`, `placeholder` | Optional guidance |
-| `required` | Default `true` |
-| `default` / `defaults` | Single value / list (multiselect, list) |
-| `options` | For select/multiselect — strings, or `{ value, label, help }` |
-| `min` / `max` | Value, length, or item-count bounds by type |
-| `validation` | Regex, text prompts only |
+Switches (enable with -s <name>; never prompted):
+  ci, docker
+```
 
-**Switches** declare the flags your script checks with `archetype.switches.is_enabled` — finally giving them discoverability.
+Everything a form needs rides each prompt: type, key, label, help, placeholder, default,
+options (with display labels), constraints, `pattern`, and any `group`/`ui` metadata the
+author attached — the same envelope the interactive terminal and MCP session render from.
+Switch discovery comes free: the probe records every `archetype.switches.is_enabled(name)`
+the script consults, which prompts alone could never reveal.
 
-**Groups** are optional UI layout hints.
+## Modes and coverage — computed, not promised
 
-## Interaction modes
+A single probe pass answers every prompt with its default, so conditional sections behind
+non-default choices stay hidden. The result says so honestly: `coverage: default-path`,
+`mode: interactive`.
 
-| Mode | Meaning |
-|---|---|
-| `interactive` (default) | The script may branch and ask conditional questions; clients should drive prompt-by-prompt. The declared prompts still aid discoverability. |
-| `batch` | The interface declares *all* required inputs — a client can present one form and submit everything at once. |
+Pass `--explore` and the probe forks at each select/confirm decision, mapping the branches:
 
-Declare `batch` only when your prompt flow is flat: no prompts hidden behind confirms or conditionals. When in doubt, stay `interactive` — it always works.
+- Conditional prompts appear with `appears_when: { key, equals }` — enough for a form to
+  show and hide sections dynamically.
+- If every branch is mapped within budget, the interface classifies **`mode: batch`**: a
+  proven claim that all inputs can be supplied up front and the render will ask nothing
+  else. Anything the probe cannot fully map — unbounded prompt loops, answer-computed
+  keys — classifies `interactive`, and the prompt-by-prompt session protocol remains the
+  ground truth.
 
-## Keep it in sync
+Batch always degrades safely: a render given batch answers that hits an unmapped prompt
+simply asks it through the normal session flow.
 
-Archetect doesn't (currently) verify that your interface matches your script — the contract is yours to keep. A drift-catching habit: whenever you add or rename a prompt in `archetype.lua`, update the interface in the same commit, and exercise it headlessly:
+## Headless instructions, all at once
 
 ```shell
-archetect render . /tmp/check --headless -A test-answers.yaml
+archetect interface <source> --answers-template > answers.yaml
+archetect render <source> --destination out --headless -A answers.yaml
 ```
 
-If the interface's declared keys can fully drive a headless render, it's telling the truth.
+The template lists every key with its default, constraints, options, and conditions —
+required keys without defaults arrive commented, so an incomplete render fails with the
+error that names exactly what to fill in.
 
-Full schema details: [Archetype Manifest reference](../reference/archetype-manifest).
+`--json` emits the full derived interface for tooling. The MCP `describe` tool and the
+`DescribeArchetype` gRPC method return the same shape, so an AI agent or a web portal asks
+the binary (or the server) for the form instead of trusting a file.
+
+## What happened to `interface.yaml`?
+
+It was removed. A declared interface was a second copy of what the prompts already say,
+kept honest only by hand — and in practice it drifted. A manifest still carrying an
+`interface:` block or a sibling `interface.yaml` fails to load with an error pointing
+here: derive the contract with `archetect interface`, then delete the declaration.
+
+Everything the declaration could express now lives on the prompts themselves, where it is
+*enforced* rather than advertised: `pattern` validates on every input path, rich options
+(`{ value, label, help }`) carry display labels, and `group`/`ui` metadata pass through to
+clients untouched. See [Prompting](./scripting/prompting) for the full option surface.

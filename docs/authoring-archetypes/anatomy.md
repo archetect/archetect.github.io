@@ -10,7 +10,6 @@ A fully-featured archetype looks like this:
 my-archetype/
 ├── archetype.yaml        # Manifest (required)
 ├── archetype.lua         # Script — entry point
-├── interface.yaml        # Declarative input contract (optional)
 ├── contents/             # Templated content (name is by convention)
 │   └── {{ project_name }}/
 │       ├── README.md
@@ -88,9 +87,11 @@ Fragments referenced from templates with `{% include %}`. Your archetype's own `
 
 Lua files that your script (or consumers of your archetype, in library mode) can `require`. This is how larger archetypes stay organized and how [Libraries](./scripting/libraries) share logic across an organization.
 
-## `interface.yaml` — declarative inputs
+## The interface — derived, not declared
 
-An optional, machine-readable declaration of your archetype's prompts and switches, letting web portals and AI agents build input forms without running the script. See [Declarative Interfaces](./interface).
+An archetype's input contract (prompts and switches) is derived by probing the script:
+`archetect interface <source>`. There is nothing to declare or keep in sync. See
+[Derived Interfaces](./interface).
 
 ## How it all executes
 

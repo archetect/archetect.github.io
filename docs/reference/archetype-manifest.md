@@ -34,7 +34,6 @@ When loading an archetype directory, Archetect searches for a manifest file in t
 | `requires` | map | running version | Runtime requirements — see [`requires`](#requires). |
 | `catalog` | map of [CatalogEntry](./catalog-manifest) | — | Named catalog entries: submenus, renderable archetypes, and library dependencies. |
 | `templating` | map | see below | Template-engine behavior — see [`templating`](#templating). |
-| `interface` | map | — | Declarative input contract — see [`interface`](#interface). |
 
 Unknown fields are silently ignored by the parser — a typo'd section will not raise an error, so double-check field names.
 
@@ -89,74 +88,6 @@ catalog:
     library: true
 ```
 
-## `interface`
-
-A declarative input contract describing what prompts and switches the archetype expects. It does not replace the Lua script — it lets external tooling (web portals, MCP agents, documentation generators) build input forms without running the script. See also [Authoring Archetypes: Interface](../authoring-archetypes/interface).
-
-The interface may live inline under `interface:` in the manifest, or in a sibling file. The file is searched in priority order:
-
-| Priority | File |
-|---|---|
-| 1 | `interface.yaml` |
-| 2 | `interface.yml` |
-
-**If an interface file exists, it takes precedence over an inline `interface:` section.**
-
-### Top-Level Interface Fields
-
-| Field | Type | Default | Description |
-|---|---|---|---|
-| `mode` | `batch` \| `interactive` | `interactive` | How clients should interact. `batch`: all required inputs are declared, clients may submit all answers at once. `interactive`: the script may branch or prompt dynamically; clients should use the prompt-by-prompt protocol. |
-| `prompts` | list of Prompt | `[]` | Declared prompts, in display order. |
-| `switches` | list of Switch | `[]` | Declared switches (boolean flags, never prompted for). |
-| `groups` | list of Group | — | Optional grouping of prompts for UI layout. |
-
-### Prompt
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `key` | string | yes | Answer key — must match what the Lua script prompts for. |
-| `type` | enum | yes | One of `text`, `int`, `bool`, `select`, `multiselect`, `list`, `editor`. |
-| `label` | string | yes | Human-readable label. |
-| `help` | string | no | Help text / description. |
-| `placeholder` | string | no | Placeholder hint for text-like inputs. |
-| `required` | boolean | no (default `true`) | Whether the input is required. |
-| `default` | any | no | Default value (type depends on `type`). |
-| `defaults` | list of strings | no | Default selections for `multiselect`/`list` prompts. |
-| `options` | list of Option | no | Options for `select`/`multiselect` prompts. |
-| `min` | integer | no | Minimum value/length/items (meaning depends on `type`). |
-| `max` | integer | no | Maximum value/length/items (meaning depends on `type`). |
-| `validation` | string | no | Regex validation pattern (`text` prompts only). |
-
-### Option
-
-Options support two YAML forms:
-
-- **Short form** — a plain string; value and label are identical: `- sqlite`
-- **Long form** — a map:
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `value` | string | yes | The value submitted when chosen. |
-| `label` | string | yes | Display label. |
-| `help` | string | no | Per-option help text. |
-
-### Switch
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `key` | string | yes | Switch name — passed to `archetype.switches.is_enabled()`. |
-| `label` | string | yes | Human-readable label. |
-| `help` | string | no | Description of what the switch enables. |
-| `default` | boolean | no (default `false`) | Default state. |
-
-### Group
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `label` | string | yes | Display label for the group. |
-| `keys` | list of strings | yes | Prompt keys belonging to this group, in display order. |
-
 ## Full Annotated Example
 
 ```yaml
@@ -184,38 +115,4 @@ catalog:
     library: true                         # staged for require() and {% include %}
     show: false                           # hidden from interactive menus
 
-# Declarative input contract for external tooling
-interface:
-  mode: batch                             # flat prompt flow, form-friendly
-  prompts:
-    - key: project_name
-      type: text
-      label: "Project Name"
-      help: "Used for directory and package name"
-      placeholder: "my-project"
-      validation: "^[a-z][a-z0-9-]*$"
-    - key: database
-      type: select
-      label: "Database"
-      options:
-        - value: postgres
-          label: "PostgreSQL"
-          help: "Recommended for production"
-        - sqlite                          # short form: value == label
-      default: postgres
-    - key: port
-      type: int
-      label: "Server Port"
-      default: 8080
-      min: 1024
-      max: 65535
-  switches:
-    - key: with_ci
-      label: "Include CI/CD"
-      help: "Generates GitHub Actions workflows"
-  groups:
-    - label: "Project"
-      keys: [project_name, port]
-    - label: "Database"
-      keys: [database]
 ```

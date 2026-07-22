@@ -98,5 +98,5 @@ When not using locals, remember composed children are *cached*: after pushing co
 - [ ] Interactive run reads well: prompt order, defaults, help text
 - [ ] Re-render over the same destination behaves sanely (Preserve semantics)
 - [ ] `--dry-run` is clean
-- [ ] Switches documented in README; [interface](./interface) (if present) matches the script
+- [ ] `archetect interface --explore` derives the contract you expect (prompts, switches, batch/interactive)
 - [ ] No stray `output.print` debugging left behind
